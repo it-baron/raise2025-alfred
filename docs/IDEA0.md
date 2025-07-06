@@ -129,9 +129,7 @@ Alfred represents the future of human-computer interaction - where AI agents col
 - **Coral Protocol's agent orchestration**
 - **LiveKit's real-time voice infrastructure**
 
-We're not just building a voice assistant - we're creating a new paradigm for digital productivity.
-
-## 🏆 Why We'll Win
+## Why?
 
 1. **Mandatory Requirements Met**
 
