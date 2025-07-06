@@ -1,5 +1,7 @@
 # Voice Inbox Concierge: Alfred - Your AI Butler for Digital Life
 
+![Alfred: Voice Inbox Concierge](resources/title.png)
+
 ## 🎯 The Problem We're Solving
 
 In today's hyper-connected world, knowledge workers spend **2.5 hours daily** managing emails, calendars, and tasks - that's **30% of their workday** lost to digital administration. The constant context-switching between Gmail, Google Calendar, and task management tools creates cognitive overload and reduces productivity.
