@@ -125,9 +125,9 @@ async def entrypoint(ctx: JobContext):
     # Create agent session
     session = AgentSession[UserData](
         userdata=userdata,
-        stt=groq.STT(),
+        stt=groq.STT(model=os.getenv("GROQ_STT_MODEL", "whisper-large-v3-turbo")),
         llm=get_llm_instance(),
-        tts=groq.TTS(voice=voices["greeter"]),  # Each agent will use its own Groq TTS
+        tts=groq.TTS(voice=os.getenv("GROQ_TTS_VOICE", "Arista-PlayAI"), model=os.getenv("GROQ_TTS_MODEL", "playai-tts")),  # Each agent will use its own Groq TTS
         vad=silero.VAD.load(),
         max_tool_steps=5,
         mcp_servers=[

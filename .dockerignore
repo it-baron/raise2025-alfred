@@ -1,0 +1,58 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv
+pip-log.txt
+pip-delete-this-directory.txt
+.pytest_cache/
+*.cover
+.coverage
+.coverage.*
+coverage.xml
+*.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Project specific
+.git/
+.gitignore
+README.md
+docs/
+coral-server/
+coral-studio/
+stubs/
+Makefile
+docker-compose*.yml
+Dockerfile*
+.env*
+!.env.docker
+
+# Build artifacts
+dist/
+build/
+*.egg-info/
+
+# Test files
+tests/
+test_*.py
+*_test.py
+
+# Temporary files
+*.tmp
+*.bak
+logs/

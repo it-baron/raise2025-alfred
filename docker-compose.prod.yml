@@ -32,9 +32,7 @@ services:
 
   # Alfred Assistant
   alfred-assistant:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: ams.vultrcr.com/alfred/alfred-assistant:latest
     container_name: alfred-assistant
     command: ["python", "main.py", "dev"]
     ports:
@@ -47,7 +45,6 @@ services:
 
 networks:
   coral-network:
-    driver: bridge
     name: coral-network
 
   gateway-network:

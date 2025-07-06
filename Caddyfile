@@ -1,0 +1,61 @@
+:8080 {
+    # Enable gzip and zstd compression for all endpoints
+    encode gzip zstd
+    # Disable automatic HTTPS
+    tls internal
+
+    # Global handler for all OPTIONS requests (must be first)
+    @options {
+        method OPTIONS
+    }
+
+    handle @options {
+        header {
+            Access-Control-Allow-Origin *
+            Access-Control-Allow-Methods "GET, POST, PUT, DELETE, OPTIONS"
+            Access-Control-Allow-Headers "Content-Type, Authorization, X-Requested-With"
+            Access-Control-Max-Age "3600"
+            Access-Control-Allow-Credentials true
+            defer
+        }
+        respond 204
+    }
+
+    # Global CORS headers for non-OPTIONS requests
+    header {
+        Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+        X-Content-Type-Options "nosniff"
+        X-Frame-Options "DENY"
+        Referrer-Policy "strict-origin-when-cross-origin"
+        Cache-Control "no-cache, no-store, must-revalidate"
+
+        # CORS headers
+        Access-Control-Allow-Origin *
+        Access-Control-Allow-Methods "GET, POST, PUT, DELETE, OPTIONS"
+        Access-Control-Allow-Headers "Content-Type, Authorization, X-Requested-With"
+        Access-Control-Max-Age "3600"
+        Access-Control-Allow-Credentials true
+    }
+
+    # Stub Service API
+    # @stub_api {
+    #     path_regexp stub_api ^/stub-api/(.*)$
+    #     not method OPTIONS
+    # }
+
+    # handle @stub_api {
+    #     uri strip_prefix /stub-api
+    #     reverse_proxy stub-service:3101
+    # }
+
+    # Frontend routing
+    handle /* {
+        reverse_proxy iam-web:3000 {
+            header_up Host {host}
+            header_up X-Real-IP {remote}
+            header_up X-Forwarded-For {remote}
+            header_up X-Forwarded-Proto {scheme}
+            health_timeout 5s
+        }
+    }
+}

@@ -21,8 +21,6 @@ logger.setLevel(logging.INFO)
 
 load_dotenv()
 
-LLM_MODEL = os.getenv("LLM_MODEL")
-
 BASE_INSTRUCTIONS = """
 You are voice assistant, so you must respond with short plain text, do not use markdown or special characters for voice generation.
 Do not answer with variables, prompts, or any other text that is not a plain text.
@@ -39,7 +37,7 @@ def get_llm_instance(parallel_tool_calls=None):
     if parallel_tool_calls is not None:
         kwargs["parallel_tool_calls"] = parallel_tool_calls
 
-    return groq.LLM(model=LLM_MODEL, api_key=api_key, **kwargs)
+    return groq.LLM(model=os.getenv("GROQ_LLM_MODEL", "meta-llama/llama-4-scout-17b-16e-instruct"), api_key=api_key, **kwargs)
 
 # Voice configurations for different agents using Groq TTS
 voices = {
