@@ -1,3 +1,8 @@
+PROJECT_DIR=/Users/alexeus/raise2025/alfred
+
+coral-server-local:
+	cd coral-server && ./gradlew run
+
 run-voice-worker:
 	python3 main.py dev
 

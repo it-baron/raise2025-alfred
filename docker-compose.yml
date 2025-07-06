@@ -21,6 +21,8 @@ services:
       - "5555:5555"
     networks:
       - coral-network
+    volumes:
+      - ./coral-application-demo-repo.yaml:/config/application.yaml
 
   coral-studio:
     image: ams.vultrcr.com/alfred/coral-studio:latest
