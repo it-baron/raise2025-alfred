@@ -1,0 +1,174 @@
+#!/usr/bin/env python3
+"""
+BaseAgent - Common base class for all Alfred agents
+Following clean architecture patterns from EXAMPLE_PY.md
+"""
+
+import logging
+from dataclasses import dataclass, field
+from typing import Optional, Annotated
+import os
+import yaml
+from dotenv import load_dotenv
+from pydantic import Field
+
+from livekit.agents import Agent, function_tool
+from livekit.agents.voice import RunContext
+from livekit.plugins import groq
+
+logger = logging.getLogger("alfred-agents")
+logger.setLevel(logging.INFO)
+
+load_dotenv()
+
+LLM_MODEL = os.getenv("LLM_MODEL")
+
+BASE_INSTRUCTIONS = """
+You are voice assistant, so you must respond with short plain text, do not use markdown or special characters for voice generation.
+Do not answer with variables, prompts, or any other text that is not a plain text.
+If you find that you do not have any other tool to use, you must use the to_greeter tool to transfer to the greeter agent.
+You should proofread user's request in context of the tools you have and try to understand what user wants.
+If you do not have appropriate tool or agent to handle the request, you should say: I'm sorry, I can't help with that. Can you please rephrase your request?
+"""
+
+def get_llm_instance(parallel_tool_calls=None):
+    """Get LLM instance based on environment configuration"""
+    api_key = os.getenv("GROQ_API_KEY")
+
+    kwargs = {}
+    if parallel_tool_calls is not None:
+        kwargs["parallel_tool_calls"] = parallel_tool_calls
+
+    return groq.LLM(model=LLM_MODEL, api_key=api_key, **kwargs)
+
+# Voice configurations for different agents using Groq TTS
+voices = {
+    "greeter": "Fritz-PlayAI",      # Alfred Pennyworth - distinguished butler
+    "planner": "Calum-PlayAI",      # Coordination system - clear and organized
+    "gmail": "Basil-PlayAI",        # Email operations - professional
+    "gcal": "Mason-PlayAI",         # Calendar operations - scheduling focused
+    "gtasks": "Briggs-PlayAI",      # Task management - action-oriented
+}
+
+@dataclass
+class UserData:
+    """User data maintained across agent transfers"""
+    # User info
+    user_name: Optional[str] = "Bruce Wayne"
+    user_email: Optional[str] = "bruce@wayne.com"
+
+    # Email context
+    email_drafts: Optional[list[str]] = None
+    email_recipients: Optional[list[str]] = None
+    archived_count: Optional[int] = None
+
+    # Calendar context
+    scheduled_meetings: Optional[list[str]] = None
+    calendar_events: Optional[list[str]] = None
+    meeting_times: Optional[list[str]] = None
+
+    # Task context
+    created_tasks: Optional[list[str]] = None
+    task_descriptions: Optional[list[str]] = None
+    task_deadlines: Optional[list[str]] = None
+
+    # Agent management
+    agents: dict[str, Agent] = field(default_factory=dict)
+    prev_agent: Optional[Agent] = None
+
+    def summarize(self) -> str:
+        """Summarize user data in YAML format for better LLM understanding"""
+        data = {
+            "user_info": {
+                "name": self.user_name or "unknown",
+                "email": self.user_email or "unknown"
+            },
+            "email_context": {
+                "drafts": self.email_drafts or [],
+                "recipients": self.email_recipients or [],
+                "archived_count": self.archived_count or 0
+            },
+            "calendar_context": {
+                "scheduled_meetings": self.scheduled_meetings or [],
+                "calendar_events": self.calendar_events or [],
+                "meeting_times": self.meeting_times or []
+            },
+            "task_context": {
+                "created_tasks": self.created_tasks or [],
+                "task_descriptions": self.task_descriptions or [],
+                "task_deadlines": self.task_deadlines or []
+            },
+        }
+        # AI-REQ: YAML format performs better than JSON for LLM context
+        return yaml.dump(data)
+
+# Type alias for RunContext with UserData
+RunContext_T = RunContext[UserData]
+
+@function_tool()
+async def to_greeter(context: RunContext_T) -> tuple[Agent, str]:
+    """Called when user asks any unrelated questions or requests
+    any other services not in your job description."""
+    curr_agent: Agent = context.session.current_agent
+    return await curr_agent._transfer_to_agent("greeter", context)
+
+@function_tool()
+async def to_gmail(context: RunContext_T) -> tuple[Agent, str]:
+    """Called when user asks to work with email"""
+    curr_agent: Agent = context.session.current_agent
+    return await curr_agent._transfer_to_agent("gmail", context)
+
+@function_tool()
+async def to_gcal(context: RunContext_T) -> tuple[Agent, str]:
+    """Called when user asks to plan a calendar event"""
+    curr_agent: Agent = context.session.current_agent
+    return await curr_agent._transfer_to_agent("calendar", context)
+
+@function_tool()
+async def to_gtasks(context: RunContext_T) -> tuple[Agent, str]:
+    """Called when user asks to plan a task or create a task"""
+    curr_agent: Agent = context.session.current_agent
+    return await curr_agent._transfer_to_agent("gtasks", context)
+
+
+
+class BaseAgent(Agent):
+    """Base agent class with common functionality for all Alfred agents"""
+
+    async def on_enter(self) -> None:
+        """Called when agent becomes active"""
+        agent_name = self.__class__.__name__
+        logger.info(f"🎭 Entering {agent_name}")
+
+        userdata: UserData = self.session.userdata
+        chat_ctx = self.chat_ctx.copy()
+
+        # Add previous agent's chat history to current agent
+        if isinstance(userdata.prev_agent, Agent):
+            truncated_chat_ctx = userdata.prev_agent.chat_ctx.copy(
+                exclude_instructions=True, exclude_function_call=False
+            ).truncate(max_items=6)
+            existing_ids = {item.id for item in chat_ctx.items}
+            items_copy = [item for item in truncated_chat_ctx.items if item.id not in existing_ids]
+            chat_ctx.items.extend(items_copy)
+
+        # Add system instructions including user data context
+        chat_ctx.add_message(
+            role="system",
+            content=f"You are {agent_name} agent in Alfred voice assistant. Current user data: {userdata.summarize()}. "
+            f"You can communicate with external agents outside of the Alfred voice assistant using wait_for_mentions to listen for incoming messages and send_message tool to respond to external agents. "
+            f"Soon after your introduction, you should start calling the wait_for_mentions tool to monitor for external agents."
+        )
+
+        await self.update_chat_ctx(chat_ctx)
+        self.session.generate_reply(tool_choice="none")
+
+    async def _transfer_to_agent(self, name: str, context: RunContext_T) -> tuple[Agent, str]:
+        """Transfer to another agent"""
+        userdata = context.userdata
+        current_agent = context.session.current_agent
+        next_agent = userdata.agents[name]
+        userdata.prev_agent = current_agent
+
+        logger.info(f"🔄 Transferring from {current_agent.__class__.__name__} to {name}")
+        return next_agent, f"Transferring to {name} agent."

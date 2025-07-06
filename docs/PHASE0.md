@@ -1,4 +1,100 @@
-Below are the full-text contents for two Markdown files you can drop straight into your repo root:
+### Phase 0 – “Everything Runs (but Nothing Real Happens)”
+
+The goal of this **stub sprint** is to prove that **every message route, every Coral wrapper, and every LiveKit hop works end-to-end** before you touch Gmail, Calendar, or Google Tasks.
+By the end of this phase you can screen-record a full round-trip:
+
+> voice → GreeterA (stub) → Planner (stub) → GMailA / GCalA / GTasksA (echo stubs) → spoken confirmation, **plus** Coral Studio showing the dance.
+
+---
+
+## 1 · Stub definitions & contracts
+
+| Component     | Temporary logic                                                                                                                                                               | Must emit / return                                                                           |
+| ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| **GreeterA**  | On any incoming transcript, tag intent by simple keyword rule: `“archive” → ArchiveInt; “draft” → DraftInt; “schedule” → EventInt; “task” → TodoInt; else ScheduleQuery`.     | Coral message `IntentDetected` with JSON `{ "intent": "ArchiveInt", "raw": "<transcript>" }` |
+| **Planner**   | Map intent → one synthetic task:<br>`ArchiveInt → Task.Mail`<br>`DraftInt → Task.Mail`<br>`EventInt → Task.Schedule`<br>`TodoInt → Task.Todo`<br>`ScheduleQuery → Task.Query` | Coral `Task.*` message containing `"taskId":"stub-<uuid>"`, `"payment":0`                    |
+| **GMailA**    | On `Task.Mail`, wait 0.3 s, reply `TaskCompleted` with `"summary":"(stub) mail ok"`                                                                                           | Coral reply plus console log                                                                 |
+| **GCalA**     | On `Task.Schedule` or `Task.Query`, wait 0.3 s, reply `(stub) calendar ok` or fixed fake schedule list                                                                        | Coral reply                                                                                  |
+| **GTasksA**   | On `Task.Todo`, wait 0.3 s, reply `(stub) task created`                                                                                                                       | Coral reply                                                                                  |
+| **Voice out** | Whatever summary text arrives from service agent is TTS-echoed back to user                                                                                                   | LiveKit speech                                                                               |
+
+---
+
+## 2 · Runtime stack (docker-compose)
+
+```
+┌────────────────────── Vultr VM ──────────────────────┐
+│  coral-server     (broker, NATS)                     │
+│  coral-studio     (dashboard, port 7000)             │
+│  greeter          (stub agent)                       │
+│  planner          (stub agent)                       │
+│  gmailA           (stub agent via coraliser)         │
+│  gcalA            (stub agent via coraliser)         │
+│  gtasksA          (stub agent via coraliser)         │
+│  voice-worker     (LiveKit Agents, no real APIs)     │
+└──────────────────────────────────────────────────────┘
+LiveKit room continues to run on your Hetzner cluster.
+```
+
+_All service agents can be one **tiny Alpine container** executing a `sleep` + fixed JSON response—faster to ship._
+
+---
+
+## 3 · Implementation steps (± 4 hrs)
+
+1. **Spin up Coral stack**
+
+   - Pull docker-compose from _Coral-RaiseYourHack-Guide_.
+   - Confirm `http://<vm>:7000` loads Studio.
+
+2. **Stub agents via coraliser**
+
+   - Write a 3-line `coraliser_settings.json` for gmailA, gcalA, gtasksA (HTTP stubs on ports 9001-9003).
+   - Run `python coraliser.py …` – Studio should now list three service nodes.
+
+3. **Greeter & Planner stubs**
+
+   - Copy the _VoiceFrenchAgent_ skeleton, strip real logic, hard-code keyword switch.
+   - Register both with `coral.register()`; watch nodes appear in Studio.
+
+4. **Voice worker hookup**
+
+   - Point LiveKit Agents SDK to Coral broker for event publishing.
+   - For every completed service reply, just speak `result_digest` back.
+
+5. **Dry run**
+
+   - Join LiveKit room, say “Archive promos.”
+   - Confirm Studio shows Greeter → Planner → gmailA path; end voice says “(stub) mail ok”.
+   - Repeat with “Tell me today’s scheduled start times” → gcalA path.
+
+6. **Completion criteria**
+
+   - `/health` returns 200.
+   - Studio graph animates for each command.
+   - Voice round-trip ≤1.5 s (all local stubs).
+   - No external API keys required yet.
+
+---
+
+## 4 · Deliverables for the stub milestone
+
+| Artifact                     | Purpose                                                                             |
+| ---------------------------- | ----------------------------------------------------------------------------------- |
+| **docker-compose.yml**       | One-command spin-up for broker, studio, five agents, voice worker                   |
+| **README-stub.md**           | 60-second guide: clone → `docker compose up` → open Studio                          |
+| **30-second screen capture** | Proof tape: voice command, Studio animation, spoken echo                            |
+| **Issues backlog**           | List “Replace gmailA stub with real Gmail integration”, etc.—sets next sprint scope |
+
+---
+
+## 5 · Next sprint unlocks
+
+- Swap each stub for real MCP Google calls (Gmail, Calendar, Tasks) one by one.
+- Turn on `$CORAL` micro-bounty field once real agents succeed.
+- Replace keyword Greeter with Llama3 JSON-schema classifier.
+
+Achieving this stub milestone early gives you a safe rollback point and a visually complete demo if integration hits turbulence later.
 
 ---
 
@@ -22,12 +118,12 @@ This stubbed release must be **visually demo-ready** (LiveKit voice loop, Coral 
 
 ## 2 · Goals & Success Metrics
 
-| Goal                              | KPI (for Phase 0)                                  |
-| --------------------------------- | -------------------------------------------------- |
-| All roles visible in Coral Studio | 5 agent nodes + planner → service edges light up   |
-| Voice round-trip                  | ≤ 1.5 s from spoken command to TTS reply           |
-| Zero external secrets             | Demo runs with no Gmail / Calendar / Redmine creds |
-| Judge-ready URL                   | `/health` on Vultr VM returns **200 OK**           |
+| Goal                              | KPI (for Phase 0)                                       |
+| --------------------------------- | ------------------------------------------------------- |
+| All roles visible in Coral Studio | 5 agent nodes + planner → service edges light up        |
+| Voice round-trip                  | ≤ 1.5 s from spoken command to TTS reply                |
+| Zero external secrets             | Demo runs with no Gmail / Calendar / Google Tasks creds |
+| Judge-ready URL                   | `/health` on Vultr VM returns **200 OK**                |
 
 ---
 
@@ -41,14 +137,14 @@ This stubbed release must be **visually demo-ready** (LiveKit voice loop, Coral 
 
 ## 4 · Functional Scope
 
-| Capability                              | Included in Phase 0? |
-| --------------------------------------- | -------------------- |
-| Voice STT + TTS loop (Groq)             | ✔                    |
-| Intent → Task routing (Planner)         | ✔ (lookup table)     |
-| Service agents (GMail / GCal / Redmine) | ✔ (stub echo)        |
-| MCP stub servers                        | ✔                    |
-| Real Gmail / Calendar / Redmine APIs    | ✖ (Phase 1)          |
-| Morning digest scheduler                | ✖ (Phase 1)          |
+| Capability                                | Included in Phase 0? |
+| ----------------------------------------- | -------------------- |
+| Voice STT + TTS loop (Groq)               | ✔                    |
+| Intent → Task routing (Planner)           | ✔ (lookup table)     |
+| Service agents (GMail / GCal / GTasks)    | ✔ (stub echo)        |
+| MCP stub servers                          | ✔                    |
+| Real Gmail / Calendar / Google Tasks APIs | ✖ (Phase 1)          |
+| Morning digest scheduler                  | ✖ (Phase 1)          |
 
 ---
 
@@ -117,7 +213,7 @@ flowchart LR
         PLANNER(Planner Agent)
         GMAILA(GMail Agent)
         GCALA(GCal Agent)
-        REDA(Redmine Agent)
+        GTASK(GTask Agent)
         GW(gmail-mcp stub)
         CW(gcal-mcp stub)
         RW(red-mcp stub)
@@ -129,13 +225,13 @@ flowchart LR
     PLANNER -- pub/sub --> LS
     GMAILA -- pub/sub --> LS
     GCALA -- pub/sub --> LS
-    REDA -- pub/sub --> LS
+    GTASK -- pub/sub --> LS
     PLANNER -->|HTTP JSON| GMAILA
     PLANNER --> GCALA
-    PLANNER --> REDA
+    PLANNER --> GTASK
     GMAILA -->|HTTP JSON| GW
     GCALA --> CW
-    REDA  --> RW
+    GTASK  --> RW
     STUDIO --- LS
 ```
 ````
@@ -152,7 +248,7 @@ flowchart LR
 | `planner-agent` | `./agents/planner`                    | –              | `CORAL_BROKER_URL`, service URLs  |
 | `gmail-agent`   | `./agents/gmail`                      | 9201           | `MCP_URL`                         |
 | `gcal-agent`    | `./agents/gcal`                       | 9202           | `MCP_URL`                         |
-| `redmine-agent` | `./agents/redmine`                    | 9203           | `MCP_URL`                         |
+| `gtask-agent`   | `./agents/gtask`                      | 9203           | `MCP_URL`                         |
 | `gmail-mcp`     | `./stubs/gmail-mcp`                   | 9101           | –                                 |
 | `gcal-mcp`      | `./stubs/gcal-mcp`                    | 9102           | –                                 |
 | `red-mcp`       | `./stubs/red-mcp`                     | 9103           | –                                 |
@@ -231,7 +327,7 @@ Latency target: ≤ 300 ms.
 
 ## 7 · Future-Phase Hooks
 
-- Replace each MCP stub with real Google / Redmine integrations (Phase 1).
+- Replace each MCP stub with real Google integrations (Phase 1).
 - Enable `$CORAL` micro-payments in service-agent replies (Phase 2).
 - Swap regex Greeter for Llama-3 JSON classifier (Phase 2).
 

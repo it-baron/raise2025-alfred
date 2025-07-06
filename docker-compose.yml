@@ -1,0 +1,61 @@
+services:
+  # Coral Protocol Stack
+  coral-server:
+    build:
+      context: ./coral-server
+      dockerfile: Dockerfile
+    container_name: coral-server
+    ports:
+      - "4222:4222" # NATS client connections
+      - "6222:6222" # NATS cluster connections
+      - "8222:8222" # NATS monitoring
+      - "5555:5555" # MCP Server
+    networks:
+      - coral-network
+
+  coral-studio:
+    image: ghcr.io/coral-protocol/coral-studio
+    container_name: coral-studio
+    ports:
+      - "4173:3000"
+    networks:
+      - coral-network
+
+  # Voice Worker with LiveKit Integration
+  voice-worker:
+    build:
+      context: ./voice-worker
+      dockerfile: Dockerfile
+    container_name: voice-worker
+    ports:
+      - "8000:8000" # Health endpoint
+    depends_on:
+      coral-server:
+        condition: service_healthy
+    networks:
+      - coral-network
+    environment:
+      - CORAL_SERVER_URL=http://coral-server:5555
+      - LIVEKIT_URL=${LIVEKIT_URL:-wss://localhost:7880}
+      - LIVEKIT_API_KEY=${LIVEKIT_API_KEY:-devkey}
+      - LIVEKIT_SECRET=${LIVEKIT_SECRET:-secret}
+      - GROQ_API_KEY=${GROQ_API_KEY:-your-groq-api-key}
+      - ROOM_NAME=batcave-demo
+      - LOG_LEVEL=info
+      - PORT=8000
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+networks:
+  coral-network:
+    driver: bridge
+    name: coral-network
+
+volumes:
+  coral-data:
+    driver: local

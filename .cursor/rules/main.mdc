@@ -1,0 +1,424 @@
+---
+alwaysApply: true
+---
+
+## Project Overview
+
+This is the "Voice Inbox Concierge" project (codename "Alfred") built for the Raise Your Hack 2025 event (July 4-8, 2025 online + July 8-9, 2025 in Paris). It's a multi-agent voice assistant that handles email, calendar, and task management through natural language commands, targeting the **Vultr Track** from the $150,000 prize pool.
+
+## Coding guidelines
+
+Do not use emoji!!!
+
+Use following comments to store notes and requirements in a code:
+
+AI-REQ - A note about a new requirement, that created when creating implementation
+
+AI-NOTE — A note or comment from the human intended for the AI+Code system.
+Used to provide context, decisions, or assumptions.
+
+AI-TODO — A deferred task or reminder for the human during this or a future session.
+Used for work planning and code evolution.
+
+AI-ASK — A question from the AI+Code system to the human.
+The human is expected to answer and follow up by marking the resolution as an AI-NOTE.
+
+Make short comments and add a pydocs!
+
+## Architecture
+
+### Phase 0 (Current): Stubbed Infrastructure
+
+The project follows a multi-agent architecture using:
+
+- **Coral Protocol** for agent orchestration and message routing
+- **LiveKit** for WebRTC voice communication
+- **Groq** for ultra-low-latency STT/LLM/TTS pipeline
+- **Docker Compose** for container orchestration on Vultr VMs
+
+### Agent Components
+
+- **GreeterA**: Edge agent for intent detection via keyword matching
+- **PlannerA**: Routes intents to appropriate service agents
+- **GMailA**: Handles email operations (archive, draft)
+- **GCalA**: Manages calendar events and queries
+- **GTaskA**: Task management operations
+- **Voice Worker**: LiveKit integration for speech I/O
+
+### Message Flow
+
+```
+Voice Input → GreeterA → Planner → Service Agents → Voice Output
+```
+
+### Key Protocols
+
+- **IntentDetected**: GreeterA publishes detected intents with raw transcript
+- **Task.\***: Planner emits specific tasks (Task.Mail, Task.Schedule, Task.Todo)
+- **TaskCompleted**: Service agents respond with completion status and summaries
+
+## Development Commands
+
+### Container Management
+
+```bash
+# Build and start all services
+docker compose up -d
+
+# Check service health
+curl localhost:8000/health
+
+# View Coral Studio dashboard
+open http://localhost:7000
+```
+
+### Testing Stub Endpoints
+
+```bash
+# Test MCP stubs
+curl localhost:9101/invoke -d '{"task":"archive"}'
+curl localhost:9102/invoke -d '{"task":"create_event"}'
+curl localhost:9103/invoke -d '{"task":"create_todo"}'
+```
+
+## Key Features
+
+### Voice Commands (Phase 0 - Stubbed)
+
+1. **Default**: "Archive promos and draft replies to urgent messages"
+2. **Draft**: "Create draft for [person] with text: [content]"
+3. **Schedule**: "Book 30-min with [person] [timeframe]"
+4. **Event**: "I should [activity] at [time]"
+5. **Task**: "I would like [task] [timeframe]"
+6. **Query**: "Tell me today's scheduled start times"
+
+### Target Performance
+
+- Voice round-trip: ≤1.5 seconds
+- Morning digest: Weekdays 06:45 CEST
+- Latency optimized for EU region
+
+## Environment Variables
+
+Required for full functionality:
+
+- `LIVEKIT_URL`, `LIVEKIT_API_KEY`, `LIVEKIT_SECRET`
+- `GROQ_API_KEY`
+- `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, `GOOGLE_REFRESH_TOKEN`
+- `CORAL_BROKER_URL`
+- `DIGEST_CRON_TZ=Europe/Paris`
+
+## Repository Structure
+
+```
+docs/
+├── PHASE0.md          # Phase 0 implementation plan
+├── PRD0.md           # Product Requirements Document
+├── REQ0.md           # Business requirements
+├── SPEC0.md          # Technical specifications
+├── STEPS0.md         # Implementation steps
+└── DEMO_SCENARIO0.md # Demo script for hackathon video
+```
+
+## Implementation Status
+
+**Current Phase**: 0 (Stubbed Infrastructure)
+
+- All agents implemented as stubs with fixed responses
+- Coral Protocol integration established
+- LiveKit voice pipeline configured
+- Docker containerization complete
+
+**Next Phase**: Real API Integration
+
+- Replace stubs with actual Gmail/Calendar APIs
+- Implement MCP (Model Context Protocol) servers
+- Add micro-payment system via Coral tokens
+
+## Hackathon Requirements
+
+### Raise Your Hack 2025 Compliance
+
+- **Event**: July 4-8, 2025 (online) + July 8-9, 2025 (Paris)
+- **Target Track**: Vultr Track (from $150,000 prize pool)
+- **Mandatory**: Groq API integration + Llama model usage
+- **Location**: Le Carrousel du Louvre, Paris (on-site finals)
+
+### Submission Requirements
+
+Based on lablab.ai guidelines, the project must deliver:
+
+### Required Deliverables
+
+1. **Public GitHub Repository** - This repo with complete code and documentation
+2. **5-minute Video Presentation** - MP4 format demonstrating the solution
+3. **Slide Presentation** - PDF format with concise business case
+4. **Demo Application URL** - Live prototype for judge interaction
+5. **Cover Image** - PNG/JPG in 16:9 aspect ratio
+
+### Demo Scenario
+
+The project includes a specific demo scenario ("Batcall Assistant"):
+
+- Voice-activated "batman" password for mode switching
+- Alfred persona for voice responses
+- Multi-agent workflow visualization via Coral Studio
+- Target: ≤10 minutes total demo time
+
+### Judging Criteria Alignment
+
+- **Application of Technology**: Groq API + Llama model integration (mandatory)
+- **Presentation**: Clear problem/solution narrative
+- **Innovation**: Multi-agent voice orchestration for productivity
+- **Technical Execution**: LiveKit + Coral Protocol integration
+- **Business Application**: Time savings for email/calendar management
+
+## Development Notes
+
+- All Python services inherit from `python:3.11-slim` base image
+- Uses explicit service names and `depends_on` in docker-compose
+- Targets 1 vCPU / 2 GB Vultr VM deployment
+- Security: Only ports 22, 80/443, 7000, 8000, 9101-9103 exposed
+- Health monitoring via `/health` endpoint and Coral Studio dashboard
+
+## Timeline
+
+**Current Date**: July 5, 2025
+**Hackathon Deadline**: July 8, 2025 (3 days remaining)
+**Paris Finals**: July 8-9, 2025
+
+- **Phase 0**: Stubbed infrastructure proof (Current - Must complete by July 7)
+- **Phase 1**: Real API integration (Post-hackathon)
+- **Phase 2**: Production features (Micro-payments, advanced NLP)
+
+## Submission Checklist
+
+Before hackathon deadline (July 8, 2025):
+
+- [ ] **Mandatory**: Integrate Groq API for STT/LLM/TTS
+- [ ] **Mandatory**: Use at least one Llama model
+- [ ] Complete Phase 0 stubbed implementation
+- [ ] Deploy to Vultr VM with public access
+- [ ] Create 5-minute demo video (MP4)
+- [ ] Prepare slide presentation (PDF)
+- [ ] Design cover image (16:9 PNG/JPG)
+- [ ] Ensure GitHub repo is public
+- [ ] Test live demo URL accessibility
+- [ ] Submit all materials to lablab.ai platform
+- [ ] Register for Paris finals (July 8-9, 2025)
+
+## Memory
+
+- Always check current datetime
+- Always use mcp redmine tools to create and update tasks (project: raise2025)
+
+# CLAUDE.md
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
+## Project Overview
+
+This is the "Voice Inbox Concierge" project (codename "Alfred") built for the Raise Your Hack 2025 event (July 4-8, 2025 online + July 8-9, 2025 in Paris). It's a multi-agent voice assistant that handles email, calendar, and task management through natural language commands, targeting the **Vultr Track** from the $150,000 prize pool.
+
+## Architecture
+
+### Phase 0 (Current): Stubbed Infrastructure
+
+The project follows a multi-agent architecture using:
+
+- **Coral Protocol** for agent orchestration and message routing
+- **LiveKit** for WebRTC voice communication
+- **Groq** for ultra-low-latency STT/LLM/TTS pipeline
+- **Docker Compose** for container orchestration on Vultr VMs
+
+### Agent Components
+
+- **GreeterA**: Edge agent for intent detection via keyword matching
+- **Planner**: Routes intents to appropriate service agents
+- **GMailA**: Handles email operations (archive, draft)
+- **GCalA**: Manages calendar events and queries
+- **GTaskA**: Task management operations
+- **Voice Worker**: LiveKit integration for speech I/O
+
+### Message Flow
+
+```
+Voice Input → GreeterA → Planner → Service Agents → Voice Output
+```
+
+### Key Protocols
+
+- **IntentDetected**: GreeterA publishes detected intents with raw transcript
+- **Task.\***: Planner emits specific tasks (Task.Mail, Task.Schedule, Task.Todo)
+- **TaskCompleted**: Service agents respond with completion status and summaries
+
+## Development Commands
+
+### Container Management
+
+```bash
+# Build and start all services
+docker compose up -d
+
+# Check service health
+curl localhost:8000/health
+
+# View Coral Studio dashboard
+open http://localhost:7000
+```
+
+### Testing Stub Endpoints
+
+```bash
+# Test MCP stubs
+curl localhost:9101/invoke -d '{"task":"archive"}'
+curl localhost:9102/invoke -d '{"task":"create_event"}'
+curl localhost:9103/invoke -d '{"task":"create_todo"}'
+```
+
+## Key Features
+
+### Voice Commands (Phase 0 - Stubbed)
+
+1. **Default**: "Archive promos and draft replies to urgent messages"
+2. **Draft**: "Create draft for [person] with text: [content]"
+3. **Schedule**: "Book 30-min with [person] [timeframe]"
+4. **Event**: "I should [activity] at [time]"
+5. **Task**: "I would like [task] [timeframe]"
+6. **Query**: "Tell me today's scheduled start times"
+
+### Target Performance
+
+- Voice round-trip: ≤1.5 seconds
+- Morning digest: Weekdays 06:45 CEST
+- Latency optimized for EU region
+
+## Environment Variables
+
+Required for full functionality:
+
+- `LIVEKIT_URL`, `LIVEKIT_API_KEY`, `LIVEKIT_SECRET`
+- `GROQ_API_KEY`
+- `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, `GOOGLE_REFRESH_TOKEN`
+- `CORAL_BROKER_URL`
+- `DIGEST_CRON_TZ=Europe/Paris`
+
+## Repository Structure
+
+```
+docs/
+├── PHASE0.md          # Phase 0 implementation plan
+├── PRD0.md           # Product Requirements Document
+├── REQ0.md           # Business requirements
+├── SPEC0.md          # Technical specifications
+├── STEPS0.md         # Implementation steps
+└── DEMO_SCENARIO0.md # Demo script for hackathon video
+```
+
+## Implementation Status
+
+**Current Phase**: 0 (Stubbed Infrastructure)
+
+- All agents implemented as stubs with fixed responses
+- Coral Protocol integration established
+- LiveKit voice pipeline configured
+- Docker containerization complete
+
+**Next Phase**: Real API Integration
+
+- Replace stubs with actual Gmail/Calendar APIs
+- Implement MCP (Model Context Protocol) servers
+- Add micro-payment system via Coral tokens
+
+## Hackathon Requirements
+
+### Raise Your Hack 2025 Compliance
+
+- **Event**: July 4-8, 2025 (online) + July 8-9, 2025 (Paris)
+- **Target Track**: Vultr Track (from $150,000 prize pool)
+- **Mandatory**: Groq API integration + Llama model usage
+- **Location**: Le Carrousel du Louvre, Paris (on-site finals)
+
+### Submission Requirements
+
+Based on lablab.ai guidelines, the project must deliver:
+
+### Required Deliverables
+
+1. **Public GitHub Repository** - This repo with complete code and documentation
+2. **5-minute Video Presentation** - MP4 format demonstrating the solution
+3. **Slide Presentation** - PDF format with concise business case
+4. **Demo Application URL** - Live prototype for judge interaction
+5. **Cover Image** - PNG/JPG in 16:9 aspect ratio
+
+### Demo Scenario
+
+The project includes a specific demo scenario ("Batcall Assistant"):
+
+- Voice-activated "batman" password for mode switching
+- Alfred persona for voice responses
+- Multi-agent workflow visualization via Coral Studio
+- Target: ≤10 minutes total demo time
+
+### Judging Criteria Alignment
+
+- **Application of Technology**: Groq API + Llama model integration (mandatory)
+- **Presentation**: Clear problem/solution narrative
+- **Innovation**: Multi-agent voice orchestration for productivity
+- **Technical Execution**: LiveKit + Coral Protocol integration
+- **Business Application**: Time savings for email/calendar management
+
+## Development Notes
+
+- All Python services inherit from `python:3.11-slim` base image
+- Uses explicit service names and `depends_on` in docker-compose
+- Targets 1 vCPU / 2 GB Vultr VM deployment
+- Security: Only ports 22, 80/443, 7000, 8000, 9101-9103 exposed
+- Health monitoring via `/health` endpoint and Coral Studio dashboard
+
+## Timeline
+
+**Current Date**: July 5, 2025
+**Hackathon Deadline**: July 8, 2025 (3 days remaining)
+**Paris Finals**: July 8-9, 2025
+
+- **Phase 0**: Stubbed infrastructure proof (Current - Must complete by July 7)
+- **Phase 1**: Real API integration (Post-hackathon)
+- **Phase 2**: Production features (Micro-payments, advanced NLP)
+
+## Submission Checklist
+
+Before hackathon deadline (July 8, 2025):
+
+- [ ] **Mandatory**: Integrate Groq API for STT/LLM/TTS
+- [ ] **Mandatory**: Use at least one Llama model
+- [ ] Complete Phase 0 stubbed implementation
+- [ ] Deploy to Vultr VM with public access
+- [ ] Create 5-minute demo video (MP4)
+- [ ] Prepare slide presentation (PDF)
+- [ ] Design cover image (16:9 PNG/JPG)
+- [ ] Ensure GitHub repo is public
+- [ ] Test live demo URL accessibility
+- [ ] Submit all materials to lablab.ai platform
+- [ ] Register for Paris finals (July 8-9, 2025)
+
+## Memory
+
+- Always check current datetime
+- Always use mcp redmine tools to create and update tasks (project: raise2025, id: 14)
+- Always update followed redmine task status and notes
+- Start only with tasks that has a status "Selected For Work"
+
+## Frameworks
+
+MCP SDK: https://github.com/modelcontextprotocol/python-sdk
+Livekit Agents: https://docs.livekit.io/agents/, https://github.com/livekit/agents (Multi-agent Workflow)
+
+## Examples
+
+https://github.com/Coral-Protocol/Coral-VoiceFrench-Agent
+https://github.com/Coral-Protocol/Coral-RestaurantVoice-Agent
+https://github.com/Coral-Protocol/Coral-VoiceInterface-Agent
+https://github.com/Coral-Protocol/Coral-MedicalOfficeTriage-Agent
+
+https://github.com/Coral-Protocol/Coral-RestaurantVoice-Agent/blob/main/main.py

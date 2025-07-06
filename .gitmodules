@@ -1,0 +1,6 @@
+[submodule "coral-server"]
+	path = coral-server
+	url = https://github.com/Coral-Protocol/coral-server
+[submodule "coral-studio"]
+	path = coral-studio
+	url = https://github.com/Coral-Protocol/coral-studio.git

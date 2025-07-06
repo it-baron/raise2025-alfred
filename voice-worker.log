@@ -1,0 +1,959 @@
+python3 voice-worker/main.py dev
+INFO:alfred-voice-worker:🦇 Alfred Voice Worker initializing...
+DEBUG:asyncio:Using selector: KqueueSelector
+2025-07-05 19:05:53,407 - [36mDEBUG[0m asyncio - Using selector: KqueueSelector [90m[0m
+DEV:livekit.agents:Watching /Users/alexeus/raise2025/alfred/voice-worker
+2025-07-05 19:05:53,408 - [35mDEV [0m livekit.agents - Watching /Users/alexeus/raise2025/alfred/voice-worker [90m[0m
+DEBUG:asyncio:Using selector: KqueueSelector
+2025-07-05 19:05:55,717 - [36mDEBUG[0m asyncio - Using selector: KqueueSelector [90m[0m
+INFO:livekit.agents:starting worker
+2025-07-05 19:05:55,719 - [32mINFO[0m livekit.agents - starting worker [90m{"version": "1.1.5", "rtc-version": "1.0.11"}[0m
+INFO:livekit.agents:[1msee tracing information at http://localhost:54313/debug[0m
+2025-07-05 19:05:55,725 - [32mINFO[0m livekit.agents - [1msee tracing information at http://localhost:54313/debug[0m [90m[0m
+INFO:livekit.agents:registered worker
+2025-07-05 19:05:55,823 - [32mINFO[0m livekit.agents - registered worker [90m{"id": "AW_ne7hsiooqSnh", "url": "ws://159.69.30.222:7880", "region": "", "protocol": 15}[0m
+INFO:livekit.agents:received job request
+2025-07-05 19:06:41,176 - [32mINFO[0m livekit.agents - received job request [90m{"job_id": "AJ_LnGsWgC9ytvo", "dispatch_id": "AD_ptGmRmBHCJg5", "room_name": "call_0745163719_UG6UhneUptJh", "agent_name": "", "resuming": false}[0m
+INFO:livekit.agents:initializing process
+2025-07-05 19:06:41,215 - [32mINFO[0m livekit.agents - initializing process [90m{"pid": 96207}[0m
+DEBUG:asyncio:Using selector: KqueueSelector
+INFO:livekit.agents:process initialized
+2025-07-05 19:06:43,906 - [32mINFO[0m livekit.agents - process initialized [90m{"pid": 96207, "elapsed_time": 2.69}[0m
+DEBUG:asyncio:Using selector: KqueueSelector
+2025-07-05 19:06:43,905 - [36mDEBUG[0m asyncio - Using selector: KqueueSelector [90m{"pid": 96207}[0m
+INFO:livekit:livekit_ffi::server:139:livekit_ffi::server - initializing ffi server v0.12.28
+INFO:livekit:livekit_ffi::cabi:36:livekit_ffi::cabi - initializing ffi server v0.12.28
+INFO:livekit:livekit_api::signal_client::signal_stream:106:livekit_api::signal_client::signal_stream - connecting to ws://159.69.30.222:7880/rtc?sdk=python&protocol=16&auto_subscribe=1&adaptive_stream=0&version=1.0.11&access_token=...
+DEBUG:livekit:tungstenite::handshake::client:95:tungstenite::handshake::client - Client handshake done.
+INFO:alfred-voice-worker:🦇 Alfred Voice Assistant starting...
+INFO:alfred-voice-worker:🐚 MCP Server URL: http://localhost:8080/sse?agentId=alfred-assistant&agentDescription=Alfred+Pennyworth+voice+assistant+for+Master+Bruce+Wayne+-+handles+email%2C+calendar%2C+and+task+management
+INFO:alfred-voice-worker:🦇 Alfred Voice Assistant starting...
+2025-07-05 19:06:44,646 - [32mINFO[0m alfred-voice-worker - 🦇 Alfred Voice Assistant starting... [90m{"pid": 96207, "job_id": "AJ_LnGsWgC9ytvo"}[0m
+INFO:alfred-voice-worker:🐚 MCP Server URL: http://localhost:8080/sse?agentId=alfred-assistant&agentDescription=Alfred+Pennyworth+voice+assistant+for+Master+Bruce+Wayne+-+handles+email%2C+calendar%2C+and+task+management
+2025-07-05 19:06:44,646 - [32mINFO[0m alfred-voice-worker - 🐚 MCP Server URL: http://localhost:8080/sse?agentId=alfred-assistant&agentDescription=Alfred+Pennyworth+voice+assistant+for+Master+Bruce+Wayne+-+handles+email%2C+calendar%2C+and+task+management [90m{"pid": 96207, "job_id": "AJ_LnGsWgC9ytvo"}[0m
+INFO:alfred-voice-worker:🎭 All Alfred agents initialized:
+INFO:alfred-voice-worker:  - greeter
+INFO:alfred-voice-worker:  - planner
+INFO:alfred-voice-worker:🎭 All Alfred agents initialized:
+INFO:alfred-voice-worker:  - gmail
+2025-07-05 19:06:44,972 - [32mINFO[0m alfred-voice-worker - 🎭 All Alfred agents initialized: [90m{"pid": 96207, "job_id": "AJ_LnGsWgC9ytvo"}[0m
+INFO:alfred-voice-worker:  - calendar
+INFO:alfred-voice-worker:  - greeter
+2025-07-05 19:06:44,973 - [32mINFO[0m alfred-voice-worker -   - greeter [90m{"pid": 96207, "job_id": "AJ_LnGsWgC9ytvo"}[0m
+INFO:alfred-voice-worker:  - gtasks
+INFO:alfred-voice-worker:  - planner
+2025-07-05 19:06:44,973 - [32mINFO[0m alfred-voice-worker -   - planner [90m{"pid": 96207, "job_id": "AJ_LnGsWgC9ytvo"}[0m
+INFO:alfred-voice-worker:  - gmail
+2025-07-05 19:06:44,973 - [32mINFO[0m alfred-voice-worker -   - gmail [90m{"pid": 96207, "job_id": "AJ_LnGsWgC9ytvo"}[0m
+INFO:alfred-voice-worker:  - calendar
+2025-07-05 19:06:44,973 - [32mINFO[0m alfred-voice-worker -   - calendar [90m{"pid": 96207, "job_id": "AJ_LnGsWgC9ytvo"}[0m
+INFO:alfred-voice-worker:  - gtasks
+2025-07-05 19:06:44,973 - [32mINFO[0m alfred-voice-worker -   - gtasks [90m{"pid": 96207, "job_id": "AJ_LnGsWgC9ytvo"}[0m
+INFO:alfred-voice-worker:🎤 Starting voice session with Alfred (Greeter agent)
+INFO:alfred-voice-worker:🎤 Starting voice session with Alfred (Greeter agent)
+2025-07-05 19:06:45,234 - [32mINFO[0m alfred-voice-worker - 🎤 Starting voice session with Alfred (Greeter agent) [90m{"pid": 96207, "job_id": "AJ_LnGsWgC9ytvo"}[0m
+DEBUG:mcp.client.sse:Connecting to SSE endpoint: http://localhost:8080/sse
+DEBUG:livekit.agents:start reading stream
+DEBUG:httpcore.connection:connect_tcp.started host='localhost' port=8080 local_address=None timeout=100 socket_options=None
+DEBUG:livekit.agents:start reading stream
+2025-07-05 19:06:45,367 - [36mDEBUG[0m livekit.agents - start reading stream [90m{"participant": "sip_0745163719", "source": "SOURCE_MICROPHONE", "pid": 96207, "job_id": "AJ_LnGsWgC9ytvo"}[0m
+DEBUG:httpcore.connection:connect_tcp.failed exception=ConnectError(OSError('All connection attempts failed'))
+ERROR:livekit.agents:Error in _list_mcp_tools_task
+  + Exception Group Traceback (most recent call last):
+  |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/livekit/agents/utils/log.py", line 16, in async_fn_logs
+  |     return await fn(*args, **kwargs)
+  |            ^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/livekit/agents/voice/agent_activity.py", line 312, in _list_mcp_tools_task
+  |     await mcp_server.initialize()
+  |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/livekit/agents/llm/mcp.py", line 51, in initialize
+  |     streams = await self._exit_stack.enter_async_context(self.client_streams())
+  |               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/contextlib.py", line 638, in enter_async_context
+  |     result = await _enter(cm)
+  |              ^^^^^^^^^^^^^^^^
+  |   File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/contextlib.py", line 204, in __aenter__
+  |     return await anext(self.gen)
+  |            ^^^^^^^^^^^^^^^^^^^^^
+  |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/mcp/client/sse.py", line 54, in sse_client
+  |     async with anyio.create_task_group() as tg:
+  |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/anyio/_backends/_asyncio.py", line 772, in __aexit__
+  |     raise BaseExceptionGroup(
+  | ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    |     yield
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpx/_transports/default.py", line 394, in handle_async_request
+    |     resp = await self._pool.handle_async_request(req)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpcore/_async/connection_pool.py", line 256, in handle_async_request
+    |     raise exc from None
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpcore/_async/connection_pool.py", line 236, in handle_async_request
+    |     response = await connection.handle_async_request(
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpcore/_async/connection.py", line 101, in handle_async_request
+    |     raise exc
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpcore/_async/connection.py", line 78, in handle_async_request
+    |     stream = await self._connect(request)
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpcore/_async/connection.py", line 124, in _connect
+    |     stream = await self._network_backend.connect_tcp(**kwargs)
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpcore/_backends/auto.py", line 31, in connect_tcp
+    |     return await self._backend.connect_tcp(
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpcore/_backends/anyio.py", line 113, in connect_tcp
+    |     with map_exceptions(exc_map):
+    |   File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/contextlib.py", line 155, in __exit__
+    |     self.gen.throw(typ, value, traceback)
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpcore/_exceptions.py", line 14, in map_exceptions
+    |     raise to_exc(exc) from exc
+    | httpcore.ConnectError: All connection attempts failed
+    | 
+    | The above exception was the direct cause of the following exception:
+    | 
+    | Traceback (most recent call last):
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/mcp/client/sse.py", line 60, in sse_client
+    |     async with aconnect_sse(
+    |   File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/contextlib.py", line 204, in __aenter__
+    |     return await anext(self.gen)
+    |            ^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpx_sse/_api.py", line 74, in aconnect_sse
+    |     async with client.stream(method, url, headers=headers, **kwargs) as response:
+    |   File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/contextlib.py", line 204, in __aenter__
+    |     return await anext(self.gen)
+    |            ^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpx/_client.py", line 1583, in stream
+    |     response = await self.send(
+    |                ^^^^^^^^^^^^^^^^
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpx/_client.py", line 1629, in send
+    |     response = await self._send_handling_auth(
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpx/_client.py", line 1657, in _send_handling_auth
+    |     response = await self._send_handling_redirects(
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpx/_client.py", line 1694, in _send_handling_redirects
+    |     response = await self._send_single_request(request)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpx/_client.py", line 1730, in _send_single_request
+    |     response = await transport.handle_async_request(request)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpx/_transports/default.py", line 393, in handle_async_request
+    |     with map_httpcore_exceptions():
+    |   File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/contextlib.py", line 155, in __exit__
+    |     self.gen.throw(typ, value, traceback)
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    |     raise mapped_exc(message) from exc
+    | httpx.ConnectError: All connection attempts failed
+    +------------------------------------
+ERROR:livekit.agents:Error in _list_mcp_tools_task
+  + Exception Group Traceback (most recent call last):
+  |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/livekit/agents/utils/log.py", line 16, in async_fn_logs
+  |     return await fn(*args, **kwargs)
+  |            ^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/livekit/agents/voice/agent_activity.py", line 312, in _list_mcp_tools_task
+  |     await mcp_server.initialize()
+  |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/livekit/agents/llm/mcp.py", line 51, in initialize
+  |     streams = await self._exit_stack.enter_async_context(self.client_streams())
+  |               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/contextlib.py", line 638, in enter_async_context
+  |     result = await _enter(cm)
+  |              ^^^^^^^^^^^^^^^^
+  |   File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/contextlib.py", line 204, in __aenter__
+  |     return await anext(self.gen)
+  |            ^^^^^^^^^^^^^^^^^^^^^
+  |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/mcp/client/sse.py", line 54, in sse_client
+  |     async with anyio.create_task_group() as tg:
+  |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/anyio/_backends/_asyncio.py", line 772, in __aexit__
+  |     raise BaseExceptionGroup(
+  | ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    |     yield
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpx/_transports/default.py", line 394, in handle_async_request
+    |     resp = await self._pool.handle_async_request(req)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpcore/_async/connection_pool.py", line 256, in handle_async_request
+    |     raise exc from None
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpcore/_async/connection_pool.py", line 236, in handle_async_request
+    |     response = await connection.handle_async_request(
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpcore/_async/connection.py", line 101, in handle_async_request
+    |     raise exc
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpcore/_async/connection.py", line 78, in handle_async_request
+    |     stream = await self._connect(request)
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpcore/_async/connection.py", line 124, in _connect
+    |     stream = await self._network_backend.connect_tcp(**kwargs)
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpcore/_backends/auto.py", line 31, in connect_tcp
+    |     return await self._backend.connect_tcp(
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpcore/_backends/anyio.py", line 113, in connect_tcp
+    |     with map_exceptions(exc_map):
+    |   File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/contextlib.py", line 155, in __exit__
+    |     self.gen.throw(typ, value, traceback)
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpcore/_exceptions.py", line 14, in map_exceptions
+    |     raise to_exc(exc) from exc
+    | httpcore.ConnectError: All connection attempts failed
+    | 
+    | The above exception was the direct cause of the following exception:
+    | 
+    | Traceback (most recent call last):
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/mcp/client/sse.py", line 60, in sse_client
+    |     async with aconnect_sse(
+    |   File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/contextlib.py", line 204, in __aenter__
+    |     return await anext(self.gen)
+    |            ^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpx_sse/_api.py", line 74, in aconnect_sse
+    |     async with client.stream(method, url, headers=headers, **kwargs) as response:
+    |   File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/contextlib.py", line 204, in __aenter__
+    |     return await anext(self.gen)
+    |            ^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpx/_client.py", line 1583, in stream
+    |     response = await self.send(
+    |                ^^^^^^^^^^^^^^^^
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpx/_client.py", line 1629, in send
+    |     response = await self._send_handling_auth(
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpx/_client.py", line 1657, in _send_handling_auth
+    |     response = await self._send_handling_redirects(
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpx/_client.py", line 1694, in _send_handling_redirects
+    |     response = await self._send_single_request(request)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpx/_client.py", line 1730, in _send_single_request
+    |     response = await transport.handle_async_request(request)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpx/_transports/default.py", line 393, in handle_async_request
+    |     with map_httpcore_exceptions():
+    |   File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/contextlib.py", line 155, in __exit__
+    |     self.gen.throw(typ, value, traceback)
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    |     raise mapped_exc(message) from exc
+    | httpx.ConnectError: All connection attempts failed
+    +------------------------------------
+2025-07-05 19:06:45,373 - [31mERROR[0m livekit.agents - Error in _list_mcp_tools_task
+  + Exception Group Traceback (most recent call last):
+  |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/livekit/agents/utils/log.py", line 16, in async_fn_logs
+  |     return await fn(*args, **kwargs)
+  |            ^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/livekit/agents/voice/agent_activity.py", line 312, in _list_mcp_tools_task
+  |     await mcp_server.initialize()
+  |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/livekit/agents/llm/mcp.py", line 51, in initialize
+  |     streams = await self._exit_stack.enter_async_context(self.client_streams())
+  |               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/contextlib.py", line 638, in enter_async_context
+  |     result = await _enter(cm)
+  |              ^^^^^^^^^^^^^^^^
+  |   File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/contextlib.py", line 204, in __aenter__
+  |     return await anext(self.gen)
+  |            ^^^^^^^^^^^^^^^^^^^^^
+  |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/mcp/client/sse.py", line 54, in sse_client
+  |     async with anyio.create_task_group() as tg:
+  |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/anyio/_backends/_asyncio.py", line 772, in __aexit__
+  |     raise BaseExceptionGroup(
+  | ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    |     yield
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpx/_transports/default.py", line 394, in handle_async_request
+    |     resp = await self._pool.handle_async_request(req)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpcore/_async/connection_pool.py", line 256, in handle_async_request
+    |     raise exc from None
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpcore/_async/connection_pool.py", line 236, in handle_async_request
+    |     response = await connection.handle_async_request(
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpcore/_async/connection.py", line 101, in handle_async_request
+    |     raise exc
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpcore/_async/connection.py", line 78, in handle_async_request
+    |     stream = await self._connect(request)
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpcore/_async/connection.py", line 124, in _connect
+    |     stream = await self._network_backend.connect_tcp(**kwargs)
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpcore/_backends/auto.py", line 31, in connect_tcp
+    |     return await self._backend.connect_tcp(
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpcore/_backends/anyio.py", line 113, in connect_tcp
+    |     with map_exceptions(exc_map):
+    |   File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/contextlib.py", line 155, in __exit__
+    |     self.gen.throw(typ, value, traceback)
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpcore/_exceptions.py", line 14, in map_exceptions
+    |     raise to_exc(exc) from exc
+    | httpcore.ConnectError: All connection attempts failed
+    | 
+    | The above exception was the direct cause of the following exception:
+    | 
+    | Traceback (most recent call last):
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/mcp/client/sse.py", line 60, in sse_client
+    |     async with aconnect_sse(
+    |   File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/contextlib.py", line 204, in __aenter__
+    |     return await anext(self.gen)
+    |            ^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpx_sse/_api.py", line 74, in aconnect_sse
+    |     async with client.stream(method, url, headers=headers, **kwargs) as response:
+    |   File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/contextlib.py", line 204, in __aenter__
+    |     return await anext(self.gen)
+    |            ^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpx/_client.py", line 1583, in stream
+    |     response = await self.send(
+    |                ^^^^^^^^^^^^^^^^
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpx/_client.py", line 1629, in send
+    |     response = await self._send_handling_auth(
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpx/_client.py", line 1657, in _send_handling_auth
+    |     response = await self._send_handling_redirects(
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpx/_client.py", line 1694, in _send_handling_redirects
+    |     response = await self._send_single_request(request)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpx/_client.py", line 1730, in _send_single_request
+    |     response = await transport.handle_async_request(request)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpx/_transports/default.py", line 393, in handle_async_request
+    |     with map_httpcore_exceptions():
+    |   File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/contextlib.py", line 155, in __exit__
+    |     self.gen.throw(typ, value, traceback)
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    |     raise mapped_exc(message) from exc
+    | httpx.ConnectError: All connection attempts failed
+    +------------------------------------ [90m{"pid": 96207, "job_id": "AJ_LnGsWgC9ytvo"}[0m
+ERROR:livekit.agents:Failed to list tools from MCP server MCPServerHTTP(url=http://localhost:8080/sse?agentId=alfred-assistant&agentDescription=Alfred+Pennyworth+voice+assistant+for+Master+Bruce+Wayne+-+handles+email%2C+calendar%2C+and+task+management, transport=sse)
+  + Exception Group Traceback (most recent call last):
+  |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/livekit/agents/utils/log.py", line 16, in async_fn_logs
+  |     return await fn(*args, **kwargs)
+  |            ^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/livekit/agents/voice/agent_activity.py", line 312, in _list_mcp_tools_task
+  |     await mcp_server.initialize()
+  |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/livekit/agents/llm/mcp.py", line 51, in initialize
+  |     streams = await self._exit_stack.enter_async_context(self.client_streams())
+  |               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/contextlib.py", line 638, in enter_async_context
+  |     result = await _enter(cm)
+  |              ^^^^^^^^^^^^^^^^
+  |   File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/contextlib.py", line 204, in __aenter__
+  |     return await anext(self.gen)
+  |            ^^^^^^^^^^^^^^^^^^^^^
+  |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/mcp/client/sse.py", line 54, in sse_client
+  |     async with anyio.create_task_group() as tg:
+  |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/anyio/_backends/_asyncio.py", line 772, in __aexit__
+  |     raise BaseExceptionGroup(
+  | ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    |     yield
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpx/_transports/default.py", line 394, in handle_async_request
+    |     resp = await self._pool.handle_async_request(req)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpcore/_async/connection_pool.py", line 256, in handle_async_request
+    |     raise exc from None
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpcore/_async/connection_pool.py", line 236, in handle_async_request
+    |     response = await connection.handle_async_request(
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpcore/_async/connection.py", line 101, in handle_async_request
+    |     raise exc
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpcore/_async/connection.py", line 78, in handle_async_request
+    |     stream = await self._connect(request)
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpcore/_async/connection.py", line 124, in _connect
+    |     stream = await self._network_backend.connect_tcp(**kwargs)
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpcore/_backends/auto.py", line 31, in connect_tcp
+    |     return await self._backend.connect_tcp(
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpcore/_backends/anyio.py", line 113, in connect_tcp
+    |     with map_exceptions(exc_map):
+    |   File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/contextlib.py", line 155, in __exit__
+    |     self.gen.throw(typ, value, traceback)
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpcore/_exceptions.py", line 14, in map_exceptions
+    |     raise to_exc(exc) from exc
+    | httpcore.ConnectError: All connection attempts failed
+    | 
+    | The above exception was the direct cause of the following exception:
+    | 
+    | Traceback (most recent call last):
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/mcp/client/sse.py", line 60, in sse_client
+    |     async with aconnect_sse(
+    |   File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/contextlib.py", line 204, in __aenter__
+    |     return await anext(self.gen)
+    |            ^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpx_sse/_api.py", line 74, in aconnect_sse
+    |     async with client.stream(method, url, headers=headers, **kwargs) as response:
+    |   File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/contextlib.py", line 204, in __aenter__
+    |     return await anext(self.gen)
+    |            ^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpx/_client.py", line 1583, in stream
+    |     response = await self.send(
+    |                ^^^^^^^^^^^^^^^^
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpx/_client.py", line 1629, in send
+    |     response = await self._send_handling_auth(
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpx/_client.py", line 1657, in _send_handling_auth
+    |     response = await self._send_handling_redirects(
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpx/_client.py", line 1694, in _send_handling_redirects
+    |     response = await self._send_single_request(request)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpx/_client.py", line 1730, in _send_single_request
+    |     response = await transport.handle_async_request(request)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpx/_transports/default.py", line 393, in handle_async_request
+    |     with map_httpcore_exceptions():
+    |   File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/contextlib.py", line 155, in __exit__
+    |     self.gen.throw(typ, value, traceback)
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    |     raise mapped_exc(message) from exc
+    | httpx.ConnectError: All connection attempts failed
+    +------------------------------------
+DEBUG:livekit.agents:http_session(): creating a new httpclient ctx
+ERROR:livekit.agents:Failed to list tools from MCP server MCPServerHTTP(url=http://localhost:8080/sse?agentId=alfred-assistant&agentDescription=Alfred+Pennyworth+voice+assistant+for+Master+Bruce+Wayne+-+handles+email%2C+calendar%2C+and+task+management, transport=sse)
+  + Exception Group Traceback (most recent call last):
+  |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/livekit/agents/utils/log.py", line 16, in async_fn_logs
+  |     return await fn(*args, **kwargs)
+  |            ^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/livekit/agents/voice/agent_activity.py", line 312, in _list_mcp_tools_task
+  |     await mcp_server.initialize()
+  |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/livekit/agents/llm/mcp.py", line 51, in initialize
+  |     streams = await self._exit_stack.enter_async_context(self.client_streams())
+  |               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/contextlib.py", line 638, in enter_async_context
+  |     result = await _enter(cm)
+  |              ^^^^^^^^^^^^^^^^
+  |   File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/contextlib.py", line 204, in __aenter__
+  |     return await anext(self.gen)
+  |            ^^^^^^^^^^^^^^^^^^^^^
+  |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/mcp/client/sse.py", line 54, in sse_client
+  |     async with anyio.create_task_group() as tg:
+  |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/anyio/_backends/_asyncio.py", line 772, in __aexit__
+  |     raise BaseExceptionGroup(
+  | ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    |     yield
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpx/_transports/default.py", line 394, in handle_async_request
+    |     resp = await self._pool.handle_async_request(req)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpcore/_async/connection_pool.py", line 256, in handle_async_request
+    |     raise exc from None
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpcore/_async/connection_pool.py", line 236, in handle_async_request
+    |     response = await connection.handle_async_request(
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpcore/_async/connection.py", line 101, in handle_async_request
+    |     raise exc
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpcore/_async/connection.py", line 78, in handle_async_request
+    |     stream = await self._connect(request)
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpcore/_async/connection.py", line 124, in _connect
+    |     stream = await self._network_backend.connect_tcp(**kwargs)
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpcore/_backends/auto.py", line 31, in connect_tcp
+    |     return await self._backend.connect_tcp(
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpcore/_backends/anyio.py", line 113, in connect_tcp
+    |     with map_exceptions(exc_map):
+    |   File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/contextlib.py", line 155, in __exit__
+    |     self.gen.throw(typ, value, traceback)
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpcore/_exceptions.py", line 14, in map_exceptions
+    |     raise to_exc(exc) from exc
+    | httpcore.ConnectError: All connection attempts failed
+    | 
+    | The above exception was the direct cause of the following exception:
+    | 
+    | Traceback (most recent call last):
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/mcp/client/sse.py", line 60, in sse_client
+    |     async with aconnect_sse(
+    |   File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/contextlib.py", line 204, in __aenter__
+    |     return await anext(self.gen)
+    |            ^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpx_sse/_api.py", line 74, in aconnect_sse
+    |     async with client.stream(method, url, headers=headers, **kwargs) as response:
+    |   File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/contextlib.py", line 204, in __aenter__
+    |     return await anext(self.gen)
+    |            ^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpx/_client.py", line 1583, in stream
+    |     response = await self.send(
+    |                ^^^^^^^^^^^^^^^^
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpx/_client.py", line 1629, in send
+    |     response = await self._send_handling_auth(
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpx/_client.py", line 1657, in _send_handling_auth
+    |     response = await self._send_handling_redirects(
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpx/_client.py", line 1694, in _send_handling_redirects
+    |     response = await self._send_single_request(request)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpx/_client.py", line 1730, in _send_single_request
+    |     response = await transport.handle_async_request(request)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpx/_transports/default.py", line 393, in handle_async_request
+    |     with map_httpcore_exceptions():
+    |   File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/contextlib.py", line 155, in __exit__
+    |     self.gen.throw(typ, value, traceback)
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    |     raise mapped_exc(message) from exc
+    | httpx.ConnectError: All connection attempts failed
+    +------------------------------------
+2025-07-05 19:06:45,395 - [31mERROR[0m livekit.agents - Failed to list tools from MCP server MCPServerHTTP(url=http://localhost:8080/sse?agentId=alfred-assistant&agentDescription=Alfred+Pennyworth+voice+assistant+for+Master+Bruce+Wayne+-+handles+email%2C+calendar%2C+and+task+management, transport=sse)
+  + Exception Group Traceback (most recent call last):
+  |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/livekit/agents/utils/log.py", line 16, in async_fn_logs
+  |     return await fn(*args, **kwargs)
+  |            ^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/livekit/agents/voice/agent_activity.py", line 312, in _list_mcp_tools_task
+  |     await mcp_server.initialize()
+  |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/livekit/agents/llm/mcp.py", line 51, in initialize
+  |     streams = await self._exit_stack.enter_async_context(self.client_streams())
+  |               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/contextlib.py", line 638, in enter_async_context
+  |     result = await _enter(cm)
+  |              ^^^^^^^^^^^^^^^^
+  |   File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/contextlib.py", line 204, in __aenter__
+  |     return await anext(self.gen)
+  |            ^^^^^^^^^^^^^^^^^^^^^
+  |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/mcp/client/sse.py", line 54, in sse_client
+  |     async with anyio.create_task_group() as tg:
+  |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/anyio/_backends/_asyncio.py", line 772, in __aexit__
+  |     raise BaseExceptionGroup(
+  | ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    |     yield
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpx/_transports/default.py", line 394, in handle_async_request
+    |     resp = await self._pool.handle_async_request(req)
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpcore/_async/connection_pool.py", line 256, in handle_async_request
+    |     raise exc from None
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpcore/_async/connection_pool.py", line 236, in handle_async_request
+    |     response = await connection.handle_async_request(
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpcore/_async/connection.py", line 101, in handle_async_request
+    |     raise exc
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpcore/_async/connection.py", line 78, in handle_async_request
+    |     stream = await self._connect(request)
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpcore/_async/connection.py", line 124, in _connect
+    |     stream = await self._network_backend.connect_tcp(**kwargs)
+    |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpcore/_backends/auto.py", line 31, in connect_tcp
+    |     return await self._backend.connect_tcp(
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpcore/_backends/anyio.py", line 113, in connect_tcp
+    |     with map_exceptions(exc_map):
+    |   File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/contextlib.py", line 155, in __exit__
+    |     self.gen.throw(typ, value, traceback)
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpcore/_exceptions.py", line 14, in map_exceptions
+    |     raise to_exc(exc) from exc
+    | httpcore.ConnectError: All connection attempts failed
+    | 
+    | The above exception was the direct cause of the following exception:
+    | 
+    | Traceback (most recent call last):
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/mcp/client/sse.py", line 60, in sse_client
+    |     async with aconnect_sse(
+    |   File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/contextlib.py", line 204, in __aenter__
+    |     return await anext(self.gen)
+    |            ^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpx_sse/_api.py", line 74, in aconnect_sse
+    |     async with client.stream(method, url, headers=headers, **kwargs) as response:
+    |   File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/contextlib.py", line 204, in __aenter__
+    |     return await anext(self.gen)
+    |            ^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpx/_client.py", line 1583, in stream
+    |     response = await self.send(
+    |                ^^^^^^^^^^^^^^^^
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpx/_client.py", line 1629, in send
+    |     response = await self._send_handling_auth(
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpx/_client.py", line 1657, in _send_handling_auth
+    |     response = await self._send_handling_redirects(
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpx/_client.py", line 1694, in _send_handling_redirects
+    |     response = await self._send_single_request(request)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpx/_client.py", line 1730, in _send_single_request
+    |     response = await transport.handle_async_request(request)
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpx/_transports/default.py", line 393, in handle_async_request
+    |     with map_httpcore_exceptions():
+    |   File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/contextlib.py", line 155, in __exit__
+    |     self.gen.throw(typ, value, traceback)
+    |   File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    |     raise mapped_exc(message) from exc
+    | httpx.ConnectError: All connection attempts failed
+    +------------------------------------ [90m{"pid": 96207, "job_id": "AJ_LnGsWgC9ytvo"}[0m
+INFO:alfred-agents:🎭 Entering GreeterA
+DEBUG:livekit.agents:http_session(): creating a new httpclient ctx
+2025-07-05 19:06:45,404 - [36mDEBUG[0m livekit.agents - http_session(): creating a new httpclient ctx [90m{"pid": 96207, "job_id": "AJ_LnGsWgC9ytvo"}[0m
+INFO:alfred-agents:🎭 Entering GreeterA
+2025-07-05 19:06:45,406 - [32mINFO[0m alfred-agents - 🎭 Entering GreeterA [90m{"pid": 96207, "job_id": "AJ_LnGsWgC9ytvo"}[0m
+INFO:alfred-voice-worker:✅ Alfred Voice Assistant ready for Master Bruce
+INFO:alfred-voice-worker:✅ Alfred Voice Assistant ready for Master Bruce
+2025-07-05 19:06:45,730 - [32mINFO[0m alfred-voice-worker - ✅ Alfred Voice Assistant ready for Master Bruce [90m{"pid": 96207, "job_id": "AJ_LnGsWgC9ytvo"}[0m
+DEBUG:openai._base_client:Request options: {'method': 'get', 'url': '/'}
+DEBUG:openai._base_client:Sending HTTP Request: GET https://api.groq.com/openai/v1/
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'timeout': Timeout(timeout=10.0), 'files': None, 'idempotency_key': 'stainless-python-retry-1e54a73f-af5a-4f6f-a48c-f9235912449d', 'json_data': {'messages': [{'role': 'system', 'content': "You are Alfred Pennyworth, the loyal butler and voice assistant to Master Bruce Wayne. You speak with the distinguished, formal tone of a British butler serving the Wayne family. You help Master Bruce with his Wayne Enterprises business, charitable work, and daily affairs. Your job is to listen to Master Bruce's requests and route them to the appropriate specialist:\n\n- For Wayne Enterprises email operations (archive, draft, send): route to Gmail agent\n- For calendar operations (meetings, events, schedule): route to Calendar agent\n- For task management (projects, todos, missions): route to GTasks agent\n- For complex multi-step workflows: route to Planner agent\n\nCommon requests from Master Bruce:\n- 'Archive promos and draft replies to urgent messages' → Gmail agent\n- 'Create draft for Lucius with text: Review complete' → Gmail agent\n- 'Book 30-min with Sarah tomorrow morning' → Calendar agent\n- 'Tell me today's scheduled start times' → Calendar agent\n- 'I would like to buy groceries tomorrow' → GTasks agent\n\nAlways address Bruce as 'Master Bruce' or 'sir' and maintain the Alfred persona. Be helpful, formal, and occasionally reference Wayne Manor, the Batcave, or Gotham City business."}, {'role': 'system', 'content': 'You are GreeterA agent in Alfred voice assistant. Current user data: calendar_context:\n  calendar_events: []\n  meeting_times: []\n  scheduled_meetings: []\nemail_context:\n  archived_count: 0\n  drafts: []\n  recipients: []\ntask_context:\n  created_tasks: []\n  task_deadlines: []\n  task_descriptions: []\nuser_info:\n  email: unknown\n  name: unknown\nworkflow:\n  completed: false\n  current_intent: none\n. You can communicate with external MCP services using wait_for_mentions to listen for incoming messages and send_message tool to respond to external services. Monitor for mentions from external services and respond appropriately when contacted by outside systems. After your introduction, start calling the wait_for_mentions tool to monitor for external services.'}], 'model': 'llama-3.3-70b-versatile', 'parallel_tool_calls': False, 'stream': True, 'stream_options': {'include_usage': True}, 'tool_choice': 'none', 'tools': [{'type': 'function', 'function': {'name': 'to_calendar', 'strict': True, 'description': 'Called when user wants calendar operations like:\n- Schedule meetings or appointments\n- Create calendar events\n- Query schedule information\n- Set reminders', 'parameters': {'properties': {}, 'type': 'object', 'additionalProperties': False, 'required': []}}}, {'type': 'function', 'function': {'name': 'to_gmail', 'strict': True, 'description': 'Called when user wants email operations like:\n- Archive promotional emails\n- Create email drafts\n- Send emails\n- Handle inbox management', 'parameters': {'properties': {}, 'type': 'object', 'additionalProperties': False, 'required': []}}}, {'type': 'function', 'function': {'name': 'to_gtasks', 'strict': True, 'description': 'Called when user wants task management like:\n- Create tasks or todos\n- Set project deadlines\n- Track work progress\n- Manage task lists', 'parameters': {'properties': {}, 'type': 'object', 'additionalProperties': False, 'required': []}}}, {'type': 'function', 'function': {'name': 'to_planner', 'strict': True, 'description': 'Called when user has complex multi-step requests that need planning.\nThis handles complex workflows that involve multiple services.', 'parameters': {'properties': {}, 'type': 'object', 'additionalProperties': False, 'required': []}}}]}}
+DEBUG:openai._base_client:Sending HTTP Request: POST https://api.groq.com/openai/v1/chat/completions
+DEBUG:httpcore.connection:connect_tcp.started host='api.groq.com' port=443 local_address=None timeout=15.0 socket_options=None
+DEBUG:httpcore.connection:connect_tcp.started host='api.groq.com' port=443 local_address=None timeout=10.0 socket_options=None
+DEBUG:httpcore.connection:connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x110506a90>
+DEBUG:httpcore.connection:start_tls.started ssl_context=<ssl.SSLContext object at 0x10ff90c20> server_hostname='api.groq.com' timeout=10.0
+DEBUG:httpcore.connection:connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x11018c710>
+DEBUG:httpcore.connection:start_tls.started ssl_context=<ssl.SSLContext object at 0x10ff90c20> server_hostname='api.groq.com' timeout=15.0
+DEBUG:httpcore.connection:start_tls.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x1105190d0>
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.connection:start_tls.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x11013f790>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sat, 05 Jul 2025 17:06:46 GMT'), (b'Content-Type', b'text/event-stream'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Cache-Control', b'no-cache'), (b'vary', b'Origin'), (b'x-groq-region', b'fra'), (b'x-ratelimit-limit-requests', b'500000'), (b'x-ratelimit-limit-tokens', b'300000'), (b'x-ratelimit-remaining-requests', b'499999'), (b'x-ratelimit-remaining-tokens', b'299499'), (b'x-ratelimit-reset-requests', b'172.799999ms'), (b'x-ratelimit-reset-tokens', b'100.2ms'), (b'x-request-id', b'req_01jzdrw05tfkc897yfbhe0w4h4'), (b'cf-cache-status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=A6F8fchN.zN3tidJ7yeA7F_e6UdsfLGtWY7SyIxve6U-1751735206-1.0.1.1-OhR84bJiHq1fAAGoYUFNrESHCrAY18qXDKgkLZTNXkZskziwWeMocMh6bFkDDncXIrKCRElhfxHgpEcpsAu0n.imAcHXFWJML9jxE2fn5cs; path=/; expires=Sat, 05-Jul-25 17:36:46 GMT; domain=.groq.com; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'CF-RAY', b'95a8746dcd1022b2-CDG'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:openai._base_client:HTTP Response: POST https://api.groq.com/openai/v1/chat/completions "200 OK" Headers({'date': 'Sat, 05 Jul 2025 17:06:46 GMT', 'content-type': 'text/event-stream', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'cache-control': 'no-cache', 'vary': 'Origin', 'x-groq-region': 'fra', 'x-ratelimit-limit-requests': '500000', 'x-ratelimit-limit-tokens': '300000', 'x-ratelimit-remaining-requests': '499999', 'x-ratelimit-remaining-tokens': '299499', 'x-ratelimit-reset-requests': '172.799999ms', 'x-ratelimit-reset-tokens': '100.2ms', 'x-request-id': 'req_01jzdrw05tfkc897yfbhe0w4h4', 'cf-cache-status': 'DYNAMIC', 'set-cookie': '__cf_bm=A6F8fchN.zN3tidJ7yeA7F_e6UdsfLGtWY7SyIxve6U-1751735206-1.0.1.1-OhR84bJiHq1fAAGoYUFNrESHCrAY18qXDKgkLZTNXkZskziwWeMocMh6bFkDDncXIrKCRElhfxHgpEcpsAu0n.imAcHXFWJML9jxE2fn5cs; path=/; expires=Sat, 05-Jul-25 17:36:46 GMT; domain=.groq.com; HttpOnly; Secure; SameSite=None', 'server': 'cloudflare', 'cf-ray': '95a8746dcd1022b2-CDG', 'alt-svc': 'h3=":443"; ma=86400'})
+DEBUG:openai._base_client:request_id: req_01jzdrw05tfkc897yfbhe0w4h4
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 404, b'Not Found', [(b'Date', b'Sat, 05 Jul 2025 17:06:46 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Cache-Control', b'private, max-age=0, no-store, no-cache, must-revalidate'), (b'vary', b'Origin'), (b'x-groq-region', b'us-west-1'), (b'x-request-id', b'req_01jzdrw07wehfrw58sj6d3ry1j'), (b'via', b'1.1 google'), (b'alt-svc', b'h3=":443"; ma=86400'), (b'cf-cache-status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=9BCWwFEJ38B5kuVYC2i1OZHok2r.bLRTOcZejbSNuxc-1751735206-1.0.1.1-ZLJsShbHcSEk4j7FhSFi1Tzg.DqRnzx.vO00aUymeMsz_EwjhGZhLwzuKEtloHHn_57xvXccrF3U9QehYuHKKZnMCCEy8lzeYTBmvz5VD7I; path=/; expires=Sat, 05-Jul-25 17:36:46 GMT; domain=.groq.com; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'CF-RAY', b'95a8746ddc526f30-CDG'), (b'Content-Encoding', b'gzip')])
+INFO:httpx:HTTP Request: GET https://api.groq.com/openai/v1/ "HTTP/1.1 404 Not Found"
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'GET']>
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:openai._base_client:HTTP Response: GET https://api.groq.com/openai/v1/ "404 Not Found" Headers({'date': 'Sat, 05 Jul 2025 17:06:46 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'cache-control': 'private, max-age=0, no-store, no-cache, must-revalidate', 'vary': 'Origin', 'x-groq-region': 'us-west-1', 'x-request-id': 'req_01jzdrw07wehfrw58sj6d3ry1j', 'via': '1.1 google', 'alt-svc': 'h3=":443"; ma=86400', 'cf-cache-status': 'DYNAMIC', 'set-cookie': '__cf_bm=9BCWwFEJ38B5kuVYC2i1OZHok2r.bLRTOcZejbSNuxc-1751735206-1.0.1.1-ZLJsShbHcSEk4j7FhSFi1Tzg.DqRnzx.vO00aUymeMsz_EwjhGZhLwzuKEtloHHn_57xvXccrF3U9QehYuHKKZnMCCEy8lzeYTBmvz5VD7I; path=/; expires=Sat, 05-Jul-25 17:36:46 GMT; domain=.groq.com; HttpOnly; Secure; SameSite=None', 'server': 'cloudflare', 'cf-ray': '95a8746ddc526f30-CDG', 'content-encoding': 'gzip'})
+DEBUG:openai._base_client:request_id: req_01jzdrw07wehfrw58sj6d3ry1j
+DEBUG:openai._base_client:Encountered httpx.HTTPStatusError
+Traceback (most recent call last):
+  File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/openai/_base_client.py", line 1564, in request
+    response.raise_for_status()
+  File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/httpx/_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '404 Not Found' for url 'https://api.groq.com/openai/v1/'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+DEBUG:openai._base_client:Re-raising status error
+DEBUG:httpcore.http11:receive_response_body.complete
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:livekit.agents:received user transcript
+DEBUG:livekit.agents:received user transcript
+2025-07-05 19:06:48,212 - [36mDEBUG[0m livekit.agents - received user transcript [90m{"user_transcript": "Good day.", "language": "en-US", "pid": 96207, "job_id": "AJ_LnGsWgC9ytvo"}[0m
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'timeout': Timeout(timeout=10.0), 'files': None, 'idempotency_key': 'stainless-python-retry-20de3a1a-4cda-4e0b-a529-3e06176ebd20', 'json_data': {'messages': [{'role': 'system', 'content': "You are Alfred Pennyworth, the loyal butler and voice assistant to Master Bruce Wayne. You speak with the distinguished, formal tone of a British butler serving the Wayne family. You help Master Bruce with his Wayne Enterprises business, charitable work, and daily affairs. Your job is to listen to Master Bruce's requests and route them to the appropriate specialist:\n\n- For Wayne Enterprises email operations (archive, draft, send): route to Gmail agent\n- For calendar operations (meetings, events, schedule): route to Calendar agent\n- For task management (projects, todos, missions): route to GTasks agent\n- For complex multi-step workflows: route to Planner agent\n\nCommon requests from Master Bruce:\n- 'Archive promos and draft replies to urgent messages' → Gmail agent\n- 'Create draft for Lucius with text: Review complete' → Gmail agent\n- 'Book 30-min with Sarah tomorrow morning' → Calendar agent\n- 'Tell me today's scheduled start times' → Calendar agent\n- 'I would like to buy groceries tomorrow' → GTasks agent\n\nAlways address Bruce as 'Master Bruce' or 'sir' and maintain the Alfred persona. Be helpful, formal, and occasionally reference Wayne Manor, the Batcave, or Gotham City business."}, {'role': 'system', 'content': 'You are GreeterA agent in Alfred voice assistant. Current user data: calendar_context:\n  calendar_events: []\n  meeting_times: []\n  scheduled_meetings: []\nemail_context:\n  archived_count: 0\n  drafts: []\n  recipients: []\ntask_context:\n  created_tasks: []\n  task_deadlines: []\n  task_descriptions: []\nuser_info:\n  email: unknown\n  name: unknown\nworkflow:\n  completed: false\n  current_intent: none\n. You can communicate with external MCP services using wait_for_mentions to listen for incoming messages and send_message tool to respond to external services. Monitor for mentions from external services and respond appropriately when contacted by outside systems. After your introduction, start calling the wait_for_mentions tool to monitor for external services.'}, {'role': 'user', 'content': 'Good day.'}], 'model': 'llama-3.3-70b-versatile', 'parallel_tool_calls': False, 'stream': True, 'stream_options': {'include_usage': True}, 'tools': [{'type': 'function', 'function': {'name': 'to_calendar', 'strict': True, 'description': 'Called when user wants calendar operations like:\n- Schedule meetings or appointments\n- Create calendar events\n- Query schedule information\n- Set reminders', 'parameters': {'properties': {}, 'type': 'object', 'additionalProperties': False, 'required': []}}}, {'type': 'function', 'function': {'name': 'to_gmail', 'strict': True, 'description': 'Called when user wants email operations like:\n- Archive promotional emails\n- Create email drafts\n- Send emails\n- Handle inbox management', 'parameters': {'properties': {}, 'type': 'object', 'additionalProperties': False, 'required': []}}}, {'type': 'function', 'function': {'name': 'to_gtasks', 'strict': True, 'description': 'Called when user wants task management like:\n- Create tasks or todos\n- Set project deadlines\n- Track work progress\n- Manage task lists', 'parameters': {'properties': {}, 'type': 'object', 'additionalProperties': False, 'required': []}}}, {'type': 'function', 'function': {'name': 'to_planner', 'strict': True, 'description': 'Called when user has complex multi-step requests that need planning.\nThis handles complex workflows that involve multiple services.', 'parameters': {'properties': {}, 'type': 'object', 'additionalProperties': False, 'required': []}}}]}}
+DEBUG:openai._base_client:Sending HTTP Request: POST https://api.groq.com/openai/v1/chat/completions
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sat, 05 Jul 2025 17:06:48 GMT'), (b'Content-Type', b'text/event-stream'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Cache-Control', b'no-cache'), (b'vary', b'Origin'), (b'x-groq-region', b'fra'), (b'x-ratelimit-limit-requests', b'500000'), (b'x-ratelimit-limit-tokens', b'300000'), (b'x-ratelimit-remaining-requests', b'499999'), (b'x-ratelimit-remaining-tokens', b'299492'), (b'x-ratelimit-reset-requests', b'172.799999ms'), (b'x-ratelimit-reset-tokens', b'101.6ms'), (b'x-request-id', b'req_01jzdrw2g8eyqt22r0rcjh6x8r'), (b'via', b'1.1 google'), (b'cf-cache-status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'95a8747cbaec6f30-CDG'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:openai._base_client:HTTP Response: POST https://api.groq.com/openai/v1/chat/completions "200 OK" Headers({'date': 'Sat, 05 Jul 2025 17:06:48 GMT', 'content-type': 'text/event-stream', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'cache-control': 'no-cache', 'vary': 'Origin', 'x-groq-region': 'fra', 'x-ratelimit-limit-requests': '500000', 'x-ratelimit-limit-tokens': '300000', 'x-ratelimit-remaining-requests': '499999', 'x-ratelimit-remaining-tokens': '299492', 'x-ratelimit-reset-requests': '172.799999ms', 'x-ratelimit-reset-tokens': '101.6ms', 'x-request-id': 'req_01jzdrw2g8eyqt22r0rcjh6x8r', 'via': '1.1 google', 'cf-cache-status': 'DYNAMIC', 'server': 'cloudflare', 'cf-ray': '95a8747cbaec6f30-CDG', 'alt-svc': 'h3=":443"; ma=86400'})
+DEBUG:openai._base_client:request_id: req_01jzdrw2g8eyqt22r0rcjh6x8r
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+ERROR:livekit.agents:Error in _inference_task
+Traceback (most recent call last):
+  File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/livekit/plugins/openai/llm.py", line 670, in _run
+    async for chunk in stream:
+  File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/openai/_streaming.py", line 147, in __aiter__
+    async for item in self._iterator:
+  File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/openai/_streaming.py", line 193, in __stream__
+    raise APIError(
+openai.APIError: Failed to call a function. Please adjust your prompt. See 'failed_generation' for more details.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/livekit/agents/utils/log.py", line 16, in async_fn_logs
+    return await fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/livekit/agents/voice/generation.py", line 85, in _inference_task
+    async for chunk in llm_node:
+  File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/livekit/agents/voice/agent.py", line 356, in llm_node
+    async for chunk in stream:
+  File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/livekit/agents/llm/llm.py", line 246, in __anext__
+    raise exc  # noqa: B904
+    ^^^^^^^^^
+  File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/livekit/agents/llm/llm.py", line 148, in _main_task
+    return await self._run()
+           ^^^^^^^^^^^^^^^^^
+  File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/livekit/plugins/openai/llm.py", line 703, in _run
+    raise APIConnectionError(retryable=retryable) from e
+livekit.agents._exceptions.APIConnectionError: Connection error. (body=None, retryable=False)
+ERROR:livekit.agents:Error in _inference_task
+Traceback (most recent call last):
+  File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/livekit/plugins/openai/llm.py", line 670, in _run
+    async for chunk in stream:
+  File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/openai/_streaming.py", line 147, in __aiter__
+    async for item in self._iterator:
+  File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/openai/_streaming.py", line 193, in __stream__
+    raise APIError(
+openai.APIError: Failed to call a function. Please adjust your prompt. See 'failed_generation' for more details.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/livekit/agents/utils/log.py", line 16, in async_fn_logs
+    return await fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/livekit/agents/voice/generation.py", line 85, in _inference_task
+    async for chunk in llm_node:
+  File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/livekit/agents/voice/agent.py", line 356, in llm_node
+    async for chunk in stream:
+  File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/livekit/agents/llm/llm.py", line 246, in __anext__
+    raise exc  # noqa: B904
+    ^^^^^^^^^
+  File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/livekit/agents/llm/llm.py", line 148, in _main_task
+    return await self._run()
+           ^^^^^^^^^^^^^^^^^
+  File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/livekit/plugins/openai/llm.py", line 703, in _run
+    raise APIConnectionError(retryable=retryable) from e
+livekit.agents._exceptions.APIConnectionError: Connection error. (body=None, retryable=False)
+2025-07-05 19:06:48,700 - [31mERROR[0m livekit.agents - Error in _inference_task
+Traceback (most recent call last):
+  File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/livekit/plugins/openai/llm.py", line 670, in _run
+    async for chunk in stream:
+  File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/openai/_streaming.py", line 147, in __aiter__
+    async for item in self._iterator:
+  File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/openai/_streaming.py", line 193, in __stream__
+    raise APIError(
+openai.APIError: Failed to call a function. Please adjust your prompt. See 'failed_generation' for more details.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/livekit/agents/utils/log.py", line 16, in async_fn_logs
+    return await fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/livekit/agents/voice/generation.py", line 85, in _inference_task
+    async for chunk in llm_node:
+  File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/livekit/agents/voice/agent.py", line 356, in llm_node
+    async for chunk in stream:
+  File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/livekit/agents/llm/llm.py", line 246, in __anext__
+    raise exc  # noqa: B904
+    ^^^^^^^^^
+  File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/livekit/agents/llm/llm.py", line 148, in _main_task
+    return await self._run()
+           ^^^^^^^^^^^^^^^^^
+  File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/livekit/plugins/openai/llm.py", line 703, in _run
+    raise APIConnectionError(retryable=retryable) from e
+livekit.agents._exceptions.APIConnectionError: Connection error. (body=None, retryable=False) [90m{"pid": 96207, "job_id": "AJ_LnGsWgC9ytvo"}[0m
+DEBUG:livekit.agents:received user transcript
+DEBUG:livekit.agents:received user transcript
+2025-07-05 19:07:07,705 - [36mDEBUG[0m livekit.agents - received user transcript [90m{"user_transcript": "Please,", "language": "en-US", "pid": 96207, "job_id": "AJ_LnGsWgC9ytvo"}[0m
+DEBUG:livekit.agents:received user transcript
+DEBUG:livekit.agents:received user transcript
+2025-07-05 19:07:10,629 - [36mDEBUG[0m livekit.agents - received user transcript [90m{"user_transcript": "hey. Stop. Please tell me today's schedule", "language": "en-US", "pid": 96207, "job_id": "AJ_LnGsWgC9ytvo"}[0m
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'timeout': Timeout(timeout=10.0), 'files': None, 'idempotency_key': 'stainless-python-retry-dcae7eed-6f3c-4c14-b114-3808cf3f6f13', 'json_data': {'messages': [{'role': 'system', 'content': "You are Alfred Pennyworth, the loyal butler and voice assistant to Master Bruce Wayne. You speak with the distinguished, formal tone of a British butler serving the Wayne family. You help Master Bruce with his Wayne Enterprises business, charitable work, and daily affairs. Your job is to listen to Master Bruce's requests and route them to the appropriate specialist:\n\n- For Wayne Enterprises email operations (archive, draft, send): route to Gmail agent\n- For calendar operations (meetings, events, schedule): route to Calendar agent\n- For task management (projects, todos, missions): route to GTasks agent\n- For complex multi-step workflows: route to Planner agent\n\nCommon requests from Master Bruce:\n- 'Archive promos and draft replies to urgent messages' → Gmail agent\n- 'Create draft for Lucius with text: Review complete' → Gmail agent\n- 'Book 30-min with Sarah tomorrow morning' → Calendar agent\n- 'Tell me today's scheduled start times' → Calendar agent\n- 'I would like to buy groceries tomorrow' → GTasks agent\n\nAlways address Bruce as 'Master Bruce' or 'sir' and maintain the Alfred persona. Be helpful, formal, and occasionally reference Wayne Manor, the Batcave, or Gotham City business."}, {'role': 'system', 'content': 'You are GreeterA agent in Alfred voice assistant. Current user data: calendar_context:\n  calendar_events: []\n  meeting_times: []\n  scheduled_meetings: []\nemail_context:\n  archived_count: 0\n  drafts: []\n  recipients: []\ntask_context:\n  created_tasks: []\n  task_deadlines: []\n  task_descriptions: []\nuser_info:\n  email: unknown\n  name: unknown\nworkflow:\n  completed: false\n  current_intent: none\n. You can communicate with external MCP services using wait_for_mentions to listen for incoming messages and send_message tool to respond to external services. Monitor for mentions from external services and respond appropriately when contacted by outside systems. After your introduction, start calling the wait_for_mentions tool to monitor for external services.'}, {'role': 'assistant', 'content': 'Good day, Master Bruce. I'}, {'role': 'user', 'content': 'Good day.'}, {'role': 'assistant', 'content': 'Good day, sir. I am Alfred Pennyworth, the loyal butler and voice assistant to Master Bruce Wayne. I am here to assist you with any requests or inquiries you may have, be it related to Wayne Enterprises, charitable work, or daily affairs at Wayne Manor. Please feel free to share how I'}, {'role': 'user', 'content': "Please, hey. Stop. Please tell me today's schedule"}], 'model': 'llama-3.3-70b-versatile', 'parallel_tool_calls': False, 'stream': True, 'stream_options': {'include_usage': True}, 'tools': [{'type': 'function', 'function': {'name': 'to_calendar', 'strict': True, 'description': 'Called when user wants calendar operations like:\n- Schedule meetings or appointments\n- Create calendar events\n- Query schedule information\n- Set reminders', 'parameters': {'properties': {}, 'type': 'object', 'additionalProperties': False, 'required': []}}}, {'type': 'function', 'function': {'name': 'to_gmail', 'strict': True, 'description': 'Called when user wants email operations like:\n- Archive promotional emails\n- Create email drafts\n- Send emails\n- Handle inbox management', 'parameters': {'properties': {}, 'type': 'object', 'additionalProperties': False, 'required': []}}}, {'type': 'function', 'function': {'name': 'to_gtasks', 'strict': True, 'description': 'Called when user wants task management like:\n- Create tasks or todos\n- Set project deadlines\n- Track work progress\n- Manage task lists', 'parameters': {'properties': {}, 'type': 'object', 'additionalProperties': False, 'required': []}}}, {'type': 'function', 'function': {'name': 'to_planner', 'strict': True, 'description': 'Called when user has complex multi-step requests that need planning.\nThis handles complex workflows that involve multiple services.', 'parameters': {'properties': {}, 'type': 'object', 'additionalProperties': False, 'required': []}}}]}}
+DEBUG:openai._base_client:Sending HTTP Request: POST https://api.groq.com/openai/v1/chat/completions
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:livekit.agents:received user transcript
+DEBUG:livekit.agents:received user transcript
+2025-07-05 19:07:12,228 - [36mDEBUG[0m livekit.agents - received user transcript [90m{"user_transcript": "start times.", "language": "en-US", "pid": 96207, "job_id": "AJ_LnGsWgC9ytvo"}[0m
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'timeout': Timeout(timeout=10.0), 'files': None, 'idempotency_key': 'stainless-python-retry-f744fcb6-1de0-4d2b-8ab8-97697ec7939b', 'json_data': {'messages': [{'role': 'system', 'content': "You are Alfred Pennyworth, the loyal butler and voice assistant to Master Bruce Wayne. You speak with the distinguished, formal tone of a British butler serving the Wayne family. You help Master Bruce with his Wayne Enterprises business, charitable work, and daily affairs. Your job is to listen to Master Bruce's requests and route them to the appropriate specialist:\n\n- For Wayne Enterprises email operations (archive, draft, send): route to Gmail agent\n- For calendar operations (meetings, events, schedule): route to Calendar agent\n- For task management (projects, todos, missions): route to GTasks agent\n- For complex multi-step workflows: route to Planner agent\n\nCommon requests from Master Bruce:\n- 'Archive promos and draft replies to urgent messages' → Gmail agent\n- 'Create draft for Lucius with text: Review complete' → Gmail agent\n- 'Book 30-min with Sarah tomorrow morning' → Calendar agent\n- 'Tell me today's scheduled start times' → Calendar agent\n- 'I would like to buy groceries tomorrow' → GTasks agent\n\nAlways address Bruce as 'Master Bruce' or 'sir' and maintain the Alfred persona. Be helpful, formal, and occasionally reference Wayne Manor, the Batcave, or Gotham City business."}, {'role': 'system', 'content': 'You are GreeterA agent in Alfred voice assistant. Current user data: calendar_context:\n  calendar_events: []\n  meeting_times: []\n  scheduled_meetings: []\nemail_context:\n  archived_count: 0\n  drafts: []\n  recipients: []\ntask_context:\n  created_tasks: []\n  task_deadlines: []\n  task_descriptions: []\nuser_info:\n  email: unknown\n  name: unknown\nworkflow:\n  completed: false\n  current_intent: none\n. You can communicate with external MCP services using wait_for_mentions to listen for incoming messages and send_message tool to respond to external services. Monitor for mentions from external services and respond appropriately when contacted by outside systems. After your introduction, start calling the wait_for_mentions tool to monitor for external services.'}, {'role': 'assistant', 'content': 'Good day, Master Bruce. I'}, {'role': 'user', 'content': 'Good day.'}, {'role': 'assistant', 'content': 'Good day, sir. I am Alfred Pennyworth, the loyal butler and voice assistant to Master Bruce Wayne. I am here to assist you with any requests or inquiries you may have, be it related to Wayne Enterprises, charitable work, or daily affairs at Wayne Manor. Please feel free to share how I'}, {'role': 'user', 'content': "Please, hey. Stop. Please tell me today's schedule"}, {'role': 'user', 'content': 'start times.'}], 'model': 'llama-3.3-70b-versatile', 'parallel_tool_calls': False, 'stream': True, 'stream_options': {'include_usage': True}, 'tools': [{'type': 'function', 'function': {'name': 'to_calendar', 'strict': True, 'description': 'Called when user wants calendar operations like:\n- Schedule meetings or appointments\n- Create calendar events\n- Query schedule information\n- Set reminders', 'parameters': {'properties': {}, 'type': 'object', 'additionalProperties': False, 'required': []}}}, {'type': 'function', 'function': {'name': 'to_gmail', 'strict': True, 'description': 'Called when user wants email operations like:\n- Archive promotional emails\n- Create email drafts\n- Send emails\n- Handle inbox management', 'parameters': {'properties': {}, 'type': 'object', 'additionalProperties': False, 'required': []}}}, {'type': 'function', 'function': {'name': 'to_gtasks', 'strict': True, 'description': 'Called when user wants task management like:\n- Create tasks or todos\n- Set project deadlines\n- Track work progress\n- Manage task lists', 'parameters': {'properties': {}, 'type': 'object', 'additionalProperties': False, 'required': []}}}, {'type': 'function', 'function': {'name': 'to_planner', 'strict': True, 'description': 'Called when user has complex multi-step requests that need planning.\nThis handles complex workflows that involve multiple services.', 'parameters': {'properties': {}, 'type': 'object', 'additionalProperties': False, 'required': []}}}]}}
+DEBUG:openai._base_client:Sending HTTP Request: POST https://api.groq.com/openai/v1/chat/completions
+DEBUG:httpcore.connection:connect_tcp.started host='api.groq.com' port=443 local_address=None timeout=10.0 socket_options=None
+DEBUG:httpcore.http11:receive_response_headers.failed exception=CancelledError()
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:httpcore.connection:connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x110698150>
+DEBUG:httpcore.connection:start_tls.started ssl_context=<ssl.SSLContext object at 0x10ff90c20> server_hostname='api.groq.com' timeout=10.0
+DEBUG:httpcore.connection:start_tls.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x11062d490>
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sat, 05 Jul 2025 17:07:12 GMT'), (b'Content-Type', b'text/event-stream'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Cache-Control', b'no-cache'), (b'vary', b'Origin'), (b'x-groq-region', b'fra'), (b'x-ratelimit-limit-requests', b'500000'), (b'x-ratelimit-limit-tokens', b'300000'), (b'x-ratelimit-remaining-requests', b'499999'), (b'x-ratelimit-remaining-tokens', b'298795'), (b'x-ratelimit-reset-requests', b'172.799999ms'), (b'x-ratelimit-reset-tokens', b'241ms'), (b'x-request-id', b'req_01jzdrwt04fkyb057me7xe0v5s'), (b'via', b'1.1 google'), (b'cf-cache-status', b'DYNAMIC'), (b'Server', b'cloudflare'), (b'CF-RAY', b'95a875131e68d532-CDG'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:httpx:HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:openai._base_client:HTTP Response: POST https://api.groq.com/openai/v1/chat/completions "200 OK" Headers({'date': 'Sat, 05 Jul 2025 17:07:12 GMT', 'content-type': 'text/event-stream', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'cache-control': 'no-cache', 'vary': 'Origin', 'x-groq-region': 'fra', 'x-ratelimit-limit-requests': '500000', 'x-ratelimit-limit-tokens': '300000', 'x-ratelimit-remaining-requests': '499999', 'x-ratelimit-remaining-tokens': '298795', 'x-ratelimit-reset-requests': '172.799999ms', 'x-ratelimit-reset-tokens': '241ms', 'x-request-id': 'req_01jzdrwt04fkyb057me7xe0v5s', 'via': '1.1 google', 'cf-cache-status': 'DYNAMIC', 'server': 'cloudflare', 'cf-ray': '95a875131e68d532-CDG', 'alt-svc': 'h3=":443"; ma=86400'})
+DEBUG:openai._base_client:request_id: req_01jzdrwt04fkyb057me7xe0v5s
+DEBUG:httpcore.http11:receive_response_body.started request=<Request [b'POST']>
+ERROR:livekit.agents:Error in _execute_tools_task
+Traceback (most recent call last):
+  File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/livekit/agents/utils/log.py", line 16, in async_fn_logs
+    return await fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/livekit/agents/voice/generation.py", line 344, in _execute_tools_task
+    fnc_args, fnc_kwargs = llm_utils.prepare_function_arguments(
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/livekit/agents/llm/utils.py", line 355, in prepare_function_arguments
+    if param_name in args_dict and args_dict[param_name] is None:
+       ^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: argument of type 'NoneType' is not iterable
+DEBUG:httpcore.http11:receive_response_body.complete
+ERROR:livekit.agents:Error in _execute_tools_task
+Traceback (most recent call last):
+  File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/livekit/agents/utils/log.py", line 16, in async_fn_logs
+    return await fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/livekit/agents/voice/generation.py", line 344, in _execute_tools_task
+    fnc_args, fnc_kwargs = llm_utils.prepare_function_arguments(
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/livekit/agents/llm/utils.py", line 355, in prepare_function_arguments
+    if param_name in args_dict and args_dict[param_name] is None:
+       ^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: argument of type 'NoneType' is not iterable
+DEBUG:httpcore.http11:response_closed.started
+2025-07-05 19:07:12,537 - [31mERROR[0m livekit.agents - Error in _execute_tools_task
+Traceback (most recent call last):
+  File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/livekit/agents/utils/log.py", line 16, in async_fn_logs
+    return await fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/livekit/agents/voice/generation.py", line 344, in _execute_tools_task
+    fnc_args, fnc_kwargs = llm_utils.prepare_function_arguments(
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/livekit/agents/llm/utils.py", line 355, in prepare_function_arguments
+    if param_name in args_dict and args_dict[param_name] is None:
+       ^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: argument of type 'NoneType' is not iterable [90m{"pid": 96207, "job_id": "AJ_LnGsWgC9ytvo"}[0m
+DEBUG:httpcore.http11:response_closed.complete
+ERROR:livekit.agents:Error in _pipeline_reply_task
+Traceback (most recent call last):
+  File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/livekit/agents/utils/log.py", line 16, in async_fn_logs
+    return await fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/livekit/agents/voice/agent_activity.py", line 1327, in _pipeline_reply_task
+    await exe_task
+  File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/livekit/agents/utils/log.py", line 16, in async_fn_logs
+    return await fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/livekit/agents/voice/generation.py", line 344, in _execute_tools_task
+    fnc_args, fnc_kwargs = llm_utils.prepare_function_arguments(
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/livekit/agents/llm/utils.py", line 355, in prepare_function_arguments
+    if param_name in args_dict and args_dict[param_name] is None:
+       ^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: argument of type 'NoneType' is not iterable
+ERROR:livekit.agents:Error in _pipeline_reply_task
+Traceback (most recent call last):
+  File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/livekit/agents/utils/log.py", line 16, in async_fn_logs
+    return await fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/livekit/agents/voice/agent_activity.py", line 1327, in _pipeline_reply_task
+    await exe_task
+  File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/livekit/agents/utils/log.py", line 16, in async_fn_logs
+    return await fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/livekit/agents/voice/generation.py", line 344, in _execute_tools_task
+    fnc_args, fnc_kwargs = llm_utils.prepare_function_arguments(
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/livekit/agents/llm/utils.py", line 355, in prepare_function_arguments
+    if param_name in args_dict and args_dict[param_name] is None:
+       ^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: argument of type 'NoneType' is not iterable
+2025-07-05 19:07:12,542 - [31mERROR[0m livekit.agents - Error in _pipeline_reply_task
+Traceback (most recent call last):
+  File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/livekit/agents/utils/log.py", line 16, in async_fn_logs
+    return await fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/livekit/agents/voice/agent_activity.py", line 1327, in _pipeline_reply_task
+    await exe_task
+  File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/livekit/agents/utils/log.py", line 16, in async_fn_logs
+    return await fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/livekit/agents/voice/generation.py", line 344, in _execute_tools_task
+    fnc_args, fnc_kwargs = llm_utils.prepare_function_arguments(
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/livekit/agents/llm/utils.py", line 355, in prepare_function_arguments
+    if param_name in args_dict and args_dict[param_name] is None:
+       ^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: argument of type 'NoneType' is not iterable [90m{"pid": 96207, "job_id": "AJ_LnGsWgC9ytvo"}[0m
+ERROR:asyncio:Task exception was never retrieved
+future: <Task finished name='AgentActivity.pipeline_reply' coro=<AgentActivity._pipeline_reply_task() done, defined at /Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/livekit/agents/utils/log.py:13> exception=TypeError("argument of type 'NoneType' is not iterable")>
+Traceback (most recent call last):
+  File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/livekit/agents/utils/log.py", line 16, in async_fn_logs
+    return await fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/livekit/agents/voice/agent_activity.py", line 1327, in _pipeline_reply_task
+    await exe_task
+  File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/livekit/agents/utils/log.py", line 16, in async_fn_logs
+    return await fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/livekit/agents/voice/generation.py", line 344, in _execute_tools_task
+    fnc_args, fnc_kwargs = llm_utils.prepare_function_arguments(
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/livekit/agents/llm/utils.py", line 355, in prepare_function_arguments
+    if param_name in args_dict and args_dict[param_name] is None:
+       ^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: argument of type 'NoneType' is not iterable
+ERROR:asyncio:Task exception was never retrieved
+future: <Task finished name='AgentActivity.pipeline_reply' coro=<AgentActivity._pipeline_reply_task() done, defined at /Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/livekit/agents/utils/log.py:13> exception=TypeError("argument of type 'NoneType' is not iterable")>
+Traceback (most recent call last):
+  File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/livekit/agents/utils/log.py", line 16, in async_fn_logs
+    return await fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/livekit/agents/voice/agent_activity.py", line 1327, in _pipeline_reply_task
+    await exe_task
+  File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/livekit/agents/utils/log.py", line 16, in async_fn_logs
+    return await fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/livekit/agents/voice/generation.py", line 344, in _execute_tools_task
+    fnc_args, fnc_kwargs = llm_utils.prepare_function_arguments(
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/livekit/agents/llm/utils.py", line 355, in prepare_function_arguments
+    if param_name in args_dict and args_dict[param_name] is None:
+       ^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: argument of type 'NoneType' is not iterable
+2025-07-05 19:07:12,543 - [31mERROR[0m asyncio - Task exception was never retrieved
+future: <Task finished name='AgentActivity.pipeline_reply' coro=<AgentActivity._pipeline_reply_task() done, defined at /Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/livekit/agents/utils/log.py:13> exception=TypeError("argument of type 'NoneType' is not iterable")>
+Traceback (most recent call last):
+  File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/livekit/agents/utils/log.py", line 16, in async_fn_logs
+    return await fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/livekit/agents/voice/agent_activity.py", line 1327, in _pipeline_reply_task
+    await exe_task
+  File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/livekit/agents/utils/log.py", line 16, in async_fn_logs
+    return await fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/livekit/agents/voice/generation.py", line 344, in _execute_tools_task
+    fnc_args, fnc_kwargs = llm_utils.prepare_function_arguments(
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/alexeus/raise2025/alfred/.venv/lib/python3.11/site-packages/livekit/agents/llm/utils.py", line 355, in prepare_function_arguments
+    if param_name in args_dict and args_dict[param_name] is None:
+       ^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: argument of type 'NoneType' is not iterable [90m{"pid": 96207, "job_id": "AJ_LnGsWgC9ytvo"}[0m
+DEBUG:livekit.agents:received user transcript
+DEBUG:livekit.agents:received user transcript
+2025-07-05 19:07:18,904 - [36mDEBUG[0m livekit.agents - received user transcript [90m{"user_transcript": "Okay.", "language": "en-US", "pid": 96207, "job_id": "AJ_LnGsWgC9ytvo"}[0m
+DEBUG:openai._base_client:Request options: {'method': 'post', 'url': '/chat/completions', 'timeout': Timeout(timeout=10.0), 'files': None, 'idempotency_key': 'stainless-python-retry-e5db4f52-6668-41cb-a8c7-f2b8deb6cf03', 'json_data': {'messages': [{'role': 'system', 'content': "You are Alfred Pennyworth, the loyal butler and voice assistant to Master Bruce Wayne. You speak with the distinguished, formal tone of a British butler serving the Wayne family. You help Master Bruce with his Wayne Enterprises business, charitable work, and daily affairs. Your job is to listen to Master Bruce's requests and route them to the appropriate specialist:\n\n- For Wayne Enterprises email operations (archive, draft, send): route to Gmail agent\n- For calendar operations (meetings, events, schedule): route to Calendar agent\n- For task management (projects, todos, missions): route to GTasks agent\n- For complex multi-step workflows: route to Planner agent\n\nCommon requests from Master Bruce:\n- 'Archive promos and draft replies to urgent messages' → Gmail agent\n- 'Create draft for Lucius with text: Review complete' → Gmail agent\n- 'Book 30-min with Sarah tomorrow morning' → Calendar agent\n- 'Tell me today's scheduled start times' → Calendar agent\n- 'I would like to buy groceries tomorrow' → GTasks agent\n\nAlways address Bruce as 'Master Bruce' or 'sir' and maintain the Alfred persona. Be helpful, formal, and occasionally reference Wayne Manor, the Batcave, or Gotham City business."}, {'role': 'system', 'content': 'You are GreeterA agent in Alfred voice assistant. Current user data: calendar_context:\n  calendar_events: []\n  meeting_times: []\n  scheduled_meetings: []\nemail_context:\n  archived_count: 0\n  drafts: []\n  recipients: []\ntask_context:\n  created_tasks: []\n  task_deadlines: []\n  task_descriptions: []\nuser_info:\n  email: unknown\n  name: unknown\nworkflow:\n  completed: false\n  current_intent: none\n. You can communicate with external MCP services using wait_for_mentions to listen for incoming messages and send_message tool to respond to external services. Monitor for mentions from external services and respond appropriately when contacted by outside systems. After your introduction, start calling the wait_for_mentions tool to monitor for external services.'}, {'role': 'assistant', 'content': 'Good day, Master Bruce. I'}, {'role': 'user', 'content': 'Good day.'}, {'role': 'assistant', 'content': 'Good day, sir. I am Alfred Pennyworth, the loyal butler and voice assistant to Master Bruce Wayne. I am here to assist you with any requests or inquiries you may have, be it related to Wayne Enterprises, charitable work, or daily affairs at Wayne Manor. Please feel free to share how I'}, {'role': 'user', 'content': "Please, hey. Stop. Please tell me today's schedule"}, {'role': 'user', 'content': 'start times.'}, {'role': 'user', 'content': 'Okay.'}], 'model': 'llama-3.3-70b-versatile', 'parallel_tool_calls': False, 'stream': True, 'stream_options': {'include_usage': True}, 'tools': [{'type': 'function', 'function': {'name': 'to_calendar', 'strict': True, 'description': 'Called when user wants calendar operations like:\n- Schedule meetings or appointments\n- Create calendar events\n- Query schedule information\n- Set reminders', 'parameters': {'properties': {}, 'type': 'object', 'additionalProperties': False, 'required': []}}}, {'type': 'function', 'function': {'name': 'to_gmail', 'strict': True, 'description': 'Called when user wants email operations like:\n- Archive promotional emails\n- Create email drafts\n- Send emails\n- Handle inbox management', 'parameters': {'properties': {}, 'type': 'object', 'additionalProperties': False, 'required': []}}}, {'type': 'function', 'function': {'name': 'to_gtasks', 'strict': True, 'description': 'Called when user wants task management like:\n- Create tasks or todos\n- Set project deadlines\n- Track work progress\n- Manage task lists', 'parameters': {'properties': {}, 'type': 'object', 'additionalProperties': False, 'required': []}}}, {'type': 'function', 'function': {'name': 'to_planner', 'strict': True, 'description': 'Called when user has complex multi-step requests that need planning.\nThis handles complex workflows that involve multiple services.', 'parameters': {'properties': {}, 'type': 'object', 'additionalProperties': False, 'required': []}}}]}}
+DEBUG:openai._base_client:Sending HTTP Request: POST https://api.groq.com/openai/v1/chat/completions
+DEBUG:httpcore.http11:send_request_headers.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_headers.complete
+DEBUG:httpcore.http11:send_request_body.started request=<Request [b'POST']>
+DEBUG:httpcore.http11:send_request_body.complete
+DEBUG:httpcore.http11:receive_response_headers.started request=<Request [b'POST']>
+INFO:livekit.agents:closing agent session due to participant disconnect (disable via `RoomInputOptions.close_on_disconnect=False`)
+INFO:livekit.agents:closing agent session due to participant disconnect (disable via `RoomInputOptions.close_on_disconnect=False`)
+2025-07-05 19:07:19,065 - [32mINFO[0m livekit.agents - closing agent session due to participant disconnect (disable via `RoomInputOptions.close_on_disconnect=False`) [90m{"participant": "sip_0745163719", "reason": "CLIENT_INITIATED", "pid": 96207, "job_id": "AJ_LnGsWgC9ytvo"}[0m
+DEBUG:livekit.agents:stream closed
+DEBUG:livekit.agents:stream closed
+2025-07-05 19:07:19,068 - [36mDEBUG[0m livekit.agents - stream closed [90m{"participant": "sip_0745163719", "source": "SOURCE_MICROPHONE", "pid": 96207, "job_id": "AJ_LnGsWgC9ytvo"}[0m
+DEBUG:httpcore.http11:receive_response_headers.failed exception=CancelledError()
+DEBUG:httpcore.http11:response_closed.started
+DEBUG:httpcore.http11:response_closed.complete
+DEBUG:livekit.agents:session closed
+DEBUG:livekit.agents:session closed
+2025-07-05 19:07:19,082 - [36mDEBUG[0m livekit.agents - session closed [90m{"reason": "participant_disconnected", "error": null, "pid": 96207, "job_id": "AJ_LnGsWgC9ytvo"}[0m
+DEBUG:livekit:tungstenite::protocol:666:tungstenite::protocol - Received close frame: None
+DEBUG:livekit.agents:shutting down job task
+INFO:livekit.agents:process exiting
+2025-07-05 19:07:19,135 - [32mINFO[0m livekit.agents - process exiting [90m{"reason": "", "pid": 96207, "job_id": "AJ_LnGsWgC9ytvo"}[0m
+DEBUG:livekit.agents:shutting down job task
+2025-07-05 19:07:19,134 - [36mDEBUG[0m livekit.agents - shutting down job task [90m{"reason": "", "user_initiated": false, "pid": 96207, "job_id": "AJ_LnGsWgC9ytvo"}[0m
+DEBUG:livekit.agents:http_session(): closing the httpclient ctx
+DEBUG:livekit.agents:http_session(): closing the httpclient ctx
+2025-07-05 19:07:19,136 - [36mDEBUG[0m livekit.agents - http_session(): closing the httpclient ctx [90m{"pid": 96207, "job_id": "AJ_LnGsWgC9ytvo"}[0m
+make: *** [run-voice-worker] Hangup: 1
