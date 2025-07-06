@@ -1,4 +1,6 @@
-# Voice Inbox Concierge: Alfred - Your AI Butler for Digital Life
+# Voice Inbox Concierge
+
+## Alfred - Your AI Butler for Digital Life
 
 ![Alfred: Voice Inbox Concierge](resources/title.png)
 
