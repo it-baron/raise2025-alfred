@@ -1,0 +1,60 @@
+applications:
+  - id: "app"
+    name: "Alfred Application"
+    description: "Alfred Application for Master Bruce Wayne"
+    privacyKeys:
+      - "default-key"
+      - "public"
+      - "priv"
+
+registry:
+  test:
+    options:
+      - name: "NAME"
+        type: "string"
+        description: "Test agent name"
+    runtime:
+      type: "executable"
+      command:
+        [
+          "sh",
+          "-c"
+          "cd /Users/alexeus/raise2025/alfred/coral-server/examples/camel-search-maths && ./venv.sh test.py"
+        ]
+      environment:
+        - option: "NAME"
+
+  # alfred:
+  #   options:
+  #     - name: "NAME"
+  #       type: "string"
+  #       description: "Alfred agent name"
+  #   runtime:
+  #     type: "executable"
+  #     command:
+  #       [
+  #         "sh",
+  #         "-c",
+  #         "cd /Users/alexeus/raise2025/alfred/agents/alfred && ./run_agent.sh main.py"
+  #       ]
+  #     environment:
+  #       - option: "NAME"
+  #         value: "alfred"
+
+  # interface:
+  #   options:
+  #     - name: "OPENAI_API_KEY"
+  #       type: "string"
+  #       description: "OpenAI API Key"
+
+  #   runtime:
+  #     type: "executable"
+  #     command:
+  #       [
+  #         "bash",
+  #         "examples/camel-search-maths/venv.sh",
+  #         "examples/camel-search-maths/mcp_example_camel_interface.py"
+  #       ]
+  #     environment:
+  #       - name: "API_KEY"
+  #         from: "OPENAI_API_KEY"

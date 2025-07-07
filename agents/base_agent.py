@@ -41,11 +41,12 @@ def get_llm_instance(parallel_tool_calls=None):
 
 # Voice configurations for different agents using Groq TTS
 voices = {
-    "greeter": "Fritz-PlayAI",      # Alfred Pennyworth - distinguished butler
-    "planner": "Calum-PlayAI",      # Coordination system - clear and organized
-    "gmail": "Basil-PlayAI",        # Email operations - professional
-    "gcal": "Mason-PlayAI",         # Calendar operations - scheduling focused
-    "gtasks": "Briggs-PlayAI",      # Task management - action-oriented
+    "guard": "Briggs-PlayAI",
+    "greeter": "Fritz-PlayAI",
+    "planner": "Calum-PlayAI",
+    "gmail": "Basil-PlayAI",
+    "gcal": "Mason-PlayAI",
+    "gtasks": "Briggs-PlayAI",
 }
 
 @dataclass
@@ -54,6 +55,7 @@ class UserData:
     # User info
     user_name: Optional[str] = "Bruce Wayne"
     user_email: Optional[str] = "bruce@wayne.com"
+    user_password: Optional[str] = "batman"
 
     # Email context
     email_drafts: Optional[list[str]] = None
@@ -109,25 +111,6 @@ async def to_greeter(context: RunContext_T) -> tuple[Agent, str]:
     any other services not in your job description."""
     curr_agent: Agent = context.session.current_agent
     return await curr_agent._transfer_to_agent("greeter", context)
-
-@function_tool()
-async def to_gmail(context: RunContext_T) -> tuple[Agent, str]:
-    """Called when user asks to work with email"""
-    curr_agent: Agent = context.session.current_agent
-    return await curr_agent._transfer_to_agent("gmail", context)
-
-@function_tool()
-async def to_gcal(context: RunContext_T) -> tuple[Agent, str]:
-    """Called when user asks to plan a calendar event"""
-    curr_agent: Agent = context.session.current_agent
-    return await curr_agent._transfer_to_agent("calendar", context)
-
-@function_tool()
-async def to_gtasks(context: RunContext_T) -> tuple[Agent, str]:
-    """Called when user asks to plan a task or create a task"""
-    curr_agent: Agent = context.session.current_agent
-    return await curr_agent._transfer_to_agent("gtasks", context)
-
 
 
 class BaseAgent(Agent):

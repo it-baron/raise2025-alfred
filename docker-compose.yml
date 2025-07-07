@@ -10,29 +10,26 @@ services:
       - caddy_data:/data
       - caddy_config:/config
     networks:
-      - coral-network
+      - alfred-network
       - gateway-network
 
-  # Coral Protocol Stack
-  coral-server:
-    image: ams.vultrcr.com/alfred/coral-server:latest
-    container_name: coral-server
+  # A2A Coordinator
+  coordinator:
+    build:
+      context: ./agents/coordinator
+      dockerfile: Dockerfile
+    container_name: alfred-coordinator
     ports:
-      - "5555:5555"
-    networks:
-      - coral-network
+      - "8080:8080"
+    environment:
+      - COORDINATOR_PORT=8080
     volumes:
-      - ./coral-application-demo-repo.yaml:/config/application.yaml
-
-  coral-studio:
-    image: ams.vultrcr.com/alfred/coral-studio:latest
-    container_name: coral-studio
-    ports:
-      - "4173:3000"
+      - /var/run/docker.sock:/var/run/docker.sock:ro
     networks:
-      - coral-network
+      - alfred-network
+    restart: unless-stopped
 
-  # Alfred Assistant
+  # Alfred Assistant (to be migrated to A2A)
   alfred-assistant:
     build:
       context: .
@@ -42,21 +39,20 @@ services:
     ports:
       - "8000:8000" # Health endpoint
     networks:
-      - coral-network
+      - alfred-network
     env_file:
       - .env.docker
     restart: unless-stopped
 
 networks:
-  coral-network:
+  alfred-network:
     driver: bridge
-    name: coral-network
+    name: alfred-network
 
   gateway-network:
     name: gateway-network
     external: true
 
 volumes:
-  coral-data:
   caddy_data:
   caddy_config:
