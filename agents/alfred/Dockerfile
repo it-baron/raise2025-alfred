@@ -35,9 +35,7 @@ ENV PATH=/root/.local/bin:$PATH
 WORKDIR /app
 
 # Copy application code
-COPY agents/ ./agents/
-COPY main.py .
-COPY __init__.py .
+COPY . .
 
 # Create necessary directories
 RUN mkdir -p /app/logs
@@ -45,9 +43,6 @@ RUN mkdir -p /app/logs
 # Set environment variables
 ENV PYTHONPATH=/app
 ENV PYTHONUNBUFFERED=1
-
-# Note: This is a LiveKit voice worker, not an HTTP server
-# Health monitoring should be done via LiveKit's built-in mechanisms
 
 # Run the voice worker in production mode
 CMD ["python", "main.py", "dev"]

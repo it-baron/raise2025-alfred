@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Alfred Voice Worker Status</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        background: #181818;
+        color: #f0f0f0;
+        margin: 0;
+        padding: 1em;
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+      }
+      h1 {
+        padding: 0;
+        margin: 0;
+      }
+
+      iframe {
+        border: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div style="display: flex; flex-direction: column; height: 90vh; gap: 1em">
+      <iframe id="background" style="flex: 2; max-height: 80%"></iframe>
+
+      <iframe
+        id="messages"
+        src="/static/messages.html"
+        style="flex: 1"
+      ></iframe>
+    </div>
+
+    <script src="/static/event-stream.js" type="module"></script>
+    <script src="/static/msg-bus.js" type="module"></script>
+    <script src="/static/background.js" type="module"></script>
+  </body>
+</html>

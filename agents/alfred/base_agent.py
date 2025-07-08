@@ -7,15 +7,15 @@ Following clean architecture patterns from EXAMPLE_PY.md
 from datetime import datetime
 import logging
 from dataclasses import dataclass, field
-from typing import Optional, Annotated
+from typing import Optional
 import os
 import yaml
 from dotenv import load_dotenv
-from pydantic import Field
 
-from livekit.agents import Agent, function_tool
+from livekit.agents import Agent
 from livekit.agents.voice import RunContext
 from livekit.plugins import groq
+from status_queue import push_status
 
 logger = logging.getLogger("alfred-agents")
 logger.setLevel(logging.INFO)
@@ -57,6 +57,8 @@ class UserData:
     user_name: Optional[str] = "Bruce Wayne"
     user_email: Optional[str] = "bruce@wayne.com"
     user_password: Optional[str] = "batman"
+
+    login_attempts: int = 0
 
     # Email context
     email_drafts: Optional[list[str]] = None
@@ -106,32 +108,6 @@ class UserData:
 # Type alias for RunContext with UserData
 RunContext_T = RunContext[UserData]
 
-@function_tool()
-async def to_greeter(context: RunContext_T) -> tuple[Agent, str]:
-    """Called when user asks any unrelated questions or requests
-    any other services not in your job description."""
-    curr_agent: Agent = context.session.current_agent
-    return await curr_agent._transfer_to_agent("greeter", context)
-
-@function_tool()
-async def to_gmail(context: RunContext_T) -> tuple[Agent, str]:
-    """Called when user asks to work with email"""
-    curr_agent: Agent = context.session.current_agent
-    return await curr_agent._transfer_to_agent("gmail", context)
-
-@function_tool()
-async def to_gcal(context: RunContext_T) -> tuple[Agent, str]:
-    """Called when user asks to plan a calendar event"""
-    curr_agent: Agent = context.session.current_agent
-    return await curr_agent._transfer_to_agent("calendar", context)
-
-@function_tool()
-async def to_gtasks(context: RunContext_T) -> tuple[Agent, str]:
-    """Called when user asks to plan a task or create a task"""
-    curr_agent: Agent = context.session.current_agent
-    return await curr_agent._transfer_to_agent("gtasks", context)
-
-
 
 class BaseAgent(Agent):
     """Base agent class with common functionality for all Alfred agents"""
@@ -140,6 +116,7 @@ class BaseAgent(Agent):
         """Called when agent becomes active"""
         agent_name = self.__class__.__name__
         logger.info(f"🎭 Entering {agent_name}")
+        push_status(f"on_enter: {agent_name}")
 
         userdata: UserData = self.session.userdata
         chat_ctx = self.chat_ctx.copy()
@@ -157,13 +134,13 @@ class BaseAgent(Agent):
         chat_ctx.add_message(
             role="system",
             content=f"You are {agent_name} agent in Alfred voice assistant. Current user data: {userdata.summarize()}. "
-            f"Please introduce yourself and ask what user wants to do. Today is {datetime.now().strftime('%Y-%m-%d')}"
+            f"Today is {datetime.now().strftime('%Y-%m-%d')}"
         )
 
         await self.update_chat_ctx(chat_ctx)
         self.session.generate_reply(tool_choice="none")
 
-    async def _transfer_to_agent(self, name: str, context: RunContext_T) -> tuple[Agent, str]:
+    async def _transfer_to_agent(self, name: str, context: RunContext_T, message: Optional[str] = None) -> tuple[Agent, str]:
         """Transfer to another agent"""
         userdata = context.userdata
         current_agent = context.session.current_agent
@@ -171,4 +148,5 @@ class BaseAgent(Agent):
         userdata.prev_agent = current_agent
 
         logger.info(f"🔄 Transferring from {current_agent.__class__.__name__} to {name}")
-        return next_agent, f"Transferring to {name} agent."
+        push_status(f"transfer_to_agent: {current_agent.__class__.__name__} to {name}")
+        return next_agent, message or f"Transferring to {name} agent."
