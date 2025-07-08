@@ -134,7 +134,7 @@ class BaseAgent(Agent):
         chat_ctx.add_message(
             role="system",
             content=f"You are {agent_name} agent in Alfred voice assistant. Current user data: {userdata.summarize()}. "
-            f"Today is {datetime.now().strftime('%Y-%m-%d')}"
+            f"Today is {datetime.now().strftime('%Y-%m-%d')}. Greet user and ask what user wants to do."
         )
 
         await self.update_chat_ctx(chat_ctx)

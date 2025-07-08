@@ -49,7 +49,7 @@ networks:
 
   gateway-network:
     name: gateway-network
-    external: true
+    driver: bridge
 
 volumes:
   coral-data:
