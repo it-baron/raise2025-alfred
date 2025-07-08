@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Tool Interface</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        background: #000;
+        color: #00ff00;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        position: relative;
+        height: 100vh;
+      }
+
+      /* Video background */
+      #video-background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+      }
+
+      /* Content container */
+      .content-wrapper {
+        position: relative;
+        z-index: 1;
+        padding: 1em;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      h2 {
+        margin-bottom: 1em;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        font-family: "Courier New", monospace;
+      }
+
+      #tool-status {
+        background: rgba(0, 0, 0, 0.8);
+        padding: 1em 2em;
+        border-radius: 8px;
+        min-height: 100px;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        backdrop-filter: blur(5px);
+        border: 1px solid #00ff00;
+        font-family: "Courier New", monospace;
+      }
+
+      .status-indicator {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: #00ff00;
+        margin-right: 10px;
+        animation: blink 1s infinite;
+      }
+
+      @keyframes blink {
+        0% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.3;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Video background -->
+    <video id="video-background" autoplay loop muted playsinline>
+      <source src="/static/terminal.mp4" type="video/mp4" />
+    </video>
+
+    <!-- Content overlay -->
+    <div class="content-wrapper">
+      <h2>Tool Interface</h2>
+      <div id="tool-status">
+        <span class="status-indicator"></span>
+        <span>System Active</span>
+      </div>
+    </div>
+
+    <script src="/static/msg-bus.js" type="module"></script>
+  </body>
+</html>

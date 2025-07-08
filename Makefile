@@ -18,6 +18,16 @@ check-imports:
 freeze:
 	pip freeze > requirements.txt
 
+docker-alfred-assistant-build:
+	docker build -t alfred-assistant ./agents/alfred
+
+docker-alfred-assistant-push:
+	docker tag alfred-assistant ams.vultrcr.com/alfred/alfred-assistant:latest
+	docker push ams.vultrcr.com/alfred/alfred-assistant:latest
+
+docker-alfred-assistant-run:
+	docker run --name alfred-assistant -p 8000:8000 alfred-assistant
+
 docker-coral-server-build:
 	docker build -t coral-server ./coral-server
 

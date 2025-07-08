@@ -20,7 +20,7 @@
 
 **USER**: "batman"
 
-**ASSISTANT**: "Password accepted. We are going to the next stage. We are going to the next stage. We are going to the next stage..."
+**ASSISTANT**: "Password accepted. Welcome home Bruce Wayne..."
 
 **[VISUAL: Terminal/UI transitions to dark "cave mode" theme]**
 
