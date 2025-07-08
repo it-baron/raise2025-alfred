@@ -1,4 +1,4 @@
-alfred.go-to-prod.com {
+alfred.7voice.ai {
   encode gzip zstd
 
   # Security headers
@@ -12,7 +12,7 @@ alfred.go-to-prod.com {
 
   	# Handle CORS with proper origin validation
 	@valid_origin {
-		header_regexp Origin "^https?://([^/]+\.upgraide\.(dev|me)|localhost(:[0-9]+)?)$"
+		header_regexp Origin "^https?://([^/]+\.7voice\.ai|localhost(:[0-9]+)?)$"
 	}
 
 	# Set dynamic CORS headers for valid origins
@@ -35,7 +35,7 @@ alfred.go-to-prod.com {
 	}
 
 	handle /* {
-		reverse_proxy store-web:3000 {
+		reverse_proxy alfred-assistant:8080 {
 			header_up Host {host}
 			header_up X-Real-IP {remote}
 		}

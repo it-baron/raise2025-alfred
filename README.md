@@ -25,6 +25,8 @@ Unlike traditional voice assistants that struggle with complex, multi-step tasks
 
 ## 🚀 Technology Stack
 
+![Architecture Overview](resources/arch.png)
+
 ### Core Technologies
 
 1. **Groq API** (Mandatory for Hackathon)
@@ -135,7 +137,7 @@ Alfred represents the future of human-computer interaction - where AI agents col
 
 We're not just building a voice assistant - we're creating a new paradigm for digital productivity.
 
-## 🏆 Why We'll Win
+## Why?
 
 1. **Mandatory Requirements Met**
 
@@ -170,25 +172,6 @@ Watch as Alfred transforms a chaotic morning into organized productivity:
 4. **Batman Mode**: Special demo mode with themed responses
 5. **Behind the Scenes**: Live visualization of multi-agent collaboration
 
----
-
-_"In the darkest of times, even Batman needs an Alfred. In the chaos of digital life, everyone deserves their own AI butler."_
-
----
-
-## Technical Specifications
-
-- **Latency**: <1.5s voice round-trip
-- **Accuracy**: 95%+ intent detection
-- **Scale**: 1000+ concurrent users per VM
-- **Languages**: English (expandable)
-- **Deployment**: Vultr Cloud, Docker Compose
-- **Security**: OAuth2, encrypted credentials
-
-## Try Alfred Now!
-
-📞 **Call Alfred directly**: +33 4 83 24 42 81 (France)
-
-Experience the future of voice-powered productivity. Just call and say "Alfred, I need your help!"
+--
 
 Built with ❤️ for Raise Your Hack 2025
